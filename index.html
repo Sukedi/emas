@@ -13,18 +13,11 @@
     font-size:16px;
    }
    input[type="number"] {
-    width: 100px;
+    width: 150px;
    }
    .checkbox-big {
-    transform: scale(1.3); /* Perbesar checkbox 1.5x */
-    margin: 5px; /* Beri sedikit jarak */
-   }
-   .teks-big {
-    color:white;
-    background-color:black;
-    font-size:2em;
-    padding:10px;
-    display:inline-block;  /* Agar padding & background hanya di sekitar teks */
+    transform: scale(1.3);
+    margin: 5px;
    }
   </style>
  </head>
@@ -36,8 +29,8 @@
    <table width="100%">
      <tr>
        <td rowspan="3" width="5%">&nbsp;</td>
-       <td width="50%">Weight in Air</td>
-       <td width="40%">
+       <td width="40%">Weight in Air</td>
+       <td width="50%">
          <input type="number" id="w1" placeholder="0">
        </td>
        <td rowspan="3" width="5%">&nbsp;</td>
@@ -62,7 +55,9 @@
    </table>
    <p align="center"><button onClick="hitung()" style="font-size:20px; font-weight:bold;">
     HITUNG</button></p><br>
-   <p class="teks-big">Kadar : <span id="hasil">0.00</span></p>
+   <p><font size="2em"><b>
+    Kadar : <span id="hasil">0.00</span></b></font>
+   </p>
  
 <script>
 function detekOS() {
