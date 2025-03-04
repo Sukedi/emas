@@ -8,9 +8,9 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>Hitung Kadar Emas</title>
   <style>
-   body, table, tr, th, td {
+   body, input, table, tr, th, td {
     font-family:arial;
-    font-size:15px;
+    font-size:16px;
    }
    .checkbox-big {
     transform: scale(1.5); /* Perbesar checkbox 1.5x */
@@ -52,12 +52,12 @@
    </table>
    <p align="center"><button onClick="hitung()" style="font-size:20px; font-weight:bold;">
     HITUNG</button></p><br>
-   <p style="background-color:black;
+   <div style="background-color:black;
     font-size:16px;
     font-color:white;
     font-weight:bold;">
     Kadar : <span id="hasil">0.00</span>
-   </p>
+   </div>
  
 <script>
 function detekOS() {
