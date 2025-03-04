@@ -5,28 +5,34 @@
   content="width=device-width,
   user-scalable=no">
   <title>Kadar Emas</title>
+  <style>
+   body {
+    font-family:arial;
+    font-size:12px;
+   }
+  </style>
  </head>
  <body>
-   <p><center>
-     <img src="emas.jpg" width="100">
-   </p></center><hr>
+   <center>
+   <img src="emas.jpg" width="100">
    <h4>Hitung Kadar Emas</h4>
-   <table>
+   </center>
+   <table width="100%">
      <tr>
-       <td>Berat angin</td>
-       <td>
+       <td width="40%">Berat Angin</td>
+       <td width="60%">
          <input type="number" id="b1" value="0">
        </td>
      </tr>
      <tr>
-       <td>Berat air</td>
+       <td>Berat Air</td>
        <td>
          <input type="number" id="b2" value="0">
        </td>
      </tr>
      <tr>
-       <td>Warna</td>
-       <td>
+       <td valign="top">Warna</td>
+       <td valign="top">
          <input type="checkbox" id="c1">
          Warna 1<br>
          <input type="checkbox" id="c2">
@@ -35,5 +41,6 @@
      </tr>
    </table>
    <p align="center"><button>HITUNG</button></p>
+   <b>Kadar : <div id="hasil">0.00</div></b>
  </body>
 </html>
