@@ -81,16 +81,18 @@ function hitung(){
     }
     document.getElementById("hasil").innerHTML=brt1/brt2;
 }
+
 document.getElementById("w1").addEventListener("input", function () {
     if (this.value.length > 4) {
         this.value = this.value.slice(0, 4);
     }
-}
+});
+
 document.getElementById("w2").addEventListener("input", function () {
     if (this.value.length > 4) {
         this.value = this.value.slice(0, 4);
     }
-}
+});
 </script>
 </body>
 </html>
