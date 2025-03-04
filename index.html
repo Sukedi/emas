@@ -12,6 +12,17 @@
     font-family:arial;
     font-size:15px;
    }
+   #table1 {
+    border-collapse:collapse;
+    background-color:black;
+    font-size:16px;
+    font-color:white;
+    font-weight:bold;
+   }
+   checkbox {
+    width:5;
+    height:5;
+   }
   </style>
  </head>
  <body onLoad="detekOS()">
@@ -24,18 +35,18 @@
        <td rowspan="3" width="5%">&nbsp;</td>
        <td width="50%">Weight in Air</td>
        <td width="40%">
-         <input type="number" id="w1" value="0">
+         <input type="number" id="w1" placeholder="0">
        </td>
        <td rowspan="3" width="5%">&nbsp;</td>
      </tr>
      <tr>
        <td>Weight in Water</td>
        <td>
-         <input type="number" id="w2" value="0">
+         <input type="number" id="w2" placeholder="0">
        </td>
      </tr>
      <tr>
-       <td valign="top">Warna</td>
+       <td valign="top"></td>
        <td valign="top">
          <input type="checkbox" id="c1">
          Warna 1<br>
@@ -47,10 +58,10 @@
      </tr>
    </table>
    <p align="center"><button onClick="hitung()" style="font-size:20px; font-weight:bold;">
-    HITUNG</button><br><br>
-   <font size="12px">
+    HITUNG</button></p><br>
+   <table id="table1"><tr><td>
    <b>Kadar : <span id="hasil">0.00</span></b>
-   </font></p>
+    </td></tr></table>
  
 <script>
 function detekOS() {
@@ -81,6 +92,8 @@ function hitung(){
     }
     hsl=brt1/brt2;
     document.getElementById("hasil").innerHTML= hsl.toFixed(2);
+    document.getElementById("w1").value="";
+    document.getElementById("w2").value="";
 }
 
 document.getElementById("w1").addEventListener("input", function () {
