@@ -4,7 +4,10 @@
   <meta name="viewport" 
   content="width=device-width,
   user-scalable=no">
-  <title>Kadar Emas</title>
+  <meta name='description' content='Berdasarkan berat angin & berat air.'>
+  <meta property='og:title' content='Hitung Kadar Emas'>
+  <meta property="og:image" content='https://github.com/sukedi/emas/emas.jpg'>
+  <title>Hitung Kadar Emas</title>
   <style>
    body {
     font-family:arial;
@@ -15,14 +18,16 @@
  <body>
    <center>
    <img src="emas.jpg" width="100">
-   <h4>Hitung Kadar Emas</h4>
+   <h2>Hitung Kadar Emas</h2>
    </center>
    <table width="100%">
      <tr>
-       <td width="40%">Berat Angin</td>
-       <td width="60%">
+       <td rowspan="3" width="20%">&nbsp;</td>
+       <td width="20%">Berat Angin</td>
+       <td width="40%">
          <input type="number" id="b1" value="0">
        </td>
+       <td rowspan="3" width="20%">&nbsp;</td>
      </tr>
      <tr>
        <td>Berat Air</td>
@@ -40,9 +45,9 @@
        </td>
      </tr>
    </table>
-   <p align="center"><button style="font-size:16px; font-density:bold;">
+   <p align="center"><button style="font-size:20px; font-weight:bold;">
     HITUNG</button><br>
-   <font size="16px">
+   <font size="14px">
    <b>Kadar : <span id="hasil">0.00</span></b>
    </font></p>
  </body>
