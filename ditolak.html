@@ -1,3 +1,22 @@
-<html>
-  
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>Akses Ditolak</title>
+</head>
+  <body onLoad="pesan()">
+    <p><font face="Arial" size="14px">
+    Silakan gunakan hp Android atau iPhone!
+    </font></p>
+    <script>
+      function pesan(){
+        Swal.fire({
+          title: "Maaf",
+           text: "Akses anda ditolak.",
+           icon: "info"
+        });
+      }
+    </script>
+  </body>
 </html>
