@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <meta name="viewport" 
-  content="width=device-width,
-  user-scalable=no">
   <meta property='og:title' content='Hitung Kadar Emas'>
   <meta name='description' content='Dari berat di luar & di dalam air.'>
   <meta property="og:image" content='https://sukedi.github.io/emas/emas.jpg'>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>Hitung Kadar Emas</title>
   <style>
    body, table, tr, th, td {
@@ -23,16 +22,16 @@
    <table width="100%">
      <tr>
        <td rowspan="3" width="5%">&nbsp;</td>
-       <td width="50%">Berat Luar Air</td>
+       <td width="50%">Weight in Air</td>
        <td width="40%">
-         <input type="number" id="b1" value="0">
+         <input type="number" id="w1" value="0">
        </td>
        <td rowspan="3" width="5%">&nbsp;</td>
      </tr>
      <tr>
-       <td>Berat Dalam Air</td>
+       <td>Weight in Water</td>
        <td>
-         <input type="number" id="b2" value="0">
+         <input type="number" id="w2" value="0">
        </td>
      </tr>
      <tr>
@@ -41,7 +40,9 @@
          <input type="checkbox" id="c1">
          Warna 1<br>
          <input type="checkbox" id="c2">
-         Warna 2
+         Warna 2<br>
+         <input type="checkbox" id="c3">
+         Warna 3
        </td>
      </tr>
    </table>
@@ -51,7 +52,7 @@
    <b>Kadar : <span id="hasil">0.00</span></b>
    </font></p>
  
- <script>
+<script>
 function detekOS() {
     let userAgent = navigator.userAgent || navigator.vendor || window.opera;
     if (/android/i.test(userAgent)) {
@@ -63,10 +64,33 @@ function detekOS() {
     } else {
         os = "Unknown";
     }
-    if (!(os !== "Android" && os !== "iPhone")){
+    if (os !== "Android" && os !== "iPhone"){
         window.location.replace("https://sukedi.github.io/emas/ditolak.html");
     }
 }
- </script>
- </body>
+function hitung(){
+    let brt1 = document.getElementById("w1").value;
+    let brt2 = document.getElementById("w2").value;
+    if (brt1 * brt2 == 0){
+        Swal.fire({
+          title: "Error",
+          text: "Berat tidak boleh nol!",
+          icon: "error"
+        });
+        return;
+    }
+    document.getElementById("hasil").innerHTML=brt1/brt2;
+}
+document.getElementById("w1").addEventListener("input", function () {
+    if (this.value.length > 4) {
+        this.value = this.value.slice(0, 4);
+    }
+}
+document.getElementById("w2").addEventListener("input", function () {
+    if (this.value.length > 4) {
+        this.value = this.value.slice(0, 4);
+    }
+}
+</script>
+</body>
 </html>
