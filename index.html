@@ -15,7 +15,7 @@
    }
   </style>
  </head>
- <body>
+ <body onLoad="detekOS()">
    <center>
    <img src="emas.jpg" width="100">
    <h2>Hitung Kadar Emas</h2>
@@ -50,5 +50,23 @@
    <font size="12px">
    <b>Kadar : <span id="hasil">0.00</span></b>
    </font></p>
+ 
+ <script>
+function detekOS() {
+    let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    if (/android/i.test(userAgent)) {
+        os = "Android";
+    } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
+        os = "iPhone";
+    } else if (/Windows NT/i.test(userAgent)) {
+        os = "Windows";
+    } else {
+        os = "Unknown";
+    }
+    if (!(os !== "Android" && os !== "iPhone")){
+        window.location.replace("https://sukedi.github.io/emas/ditolak.html");
+    }
+}
+ </script>
  </body>
 </html>
