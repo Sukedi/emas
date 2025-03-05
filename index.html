@@ -29,8 +29,8 @@
    <table width="100%">
      <tr>
        <td rowspan="3" width="5%">&nbsp;</td>
-       <td width="40%">Weight in Air</td>
-       <td width="50%">
+       <td width="35%">Weight in Air</td>
+       <td width="55%">
          <input type="number" id="w1" placeholder="0">
        </td>
        <td rowspan="3" width="5%">&nbsp;</td>
@@ -59,6 +59,7 @@
    <p style="background-color:black;"><font size="16px" color="white"><b>
     Kadar : <span id="hasil">0.00</span></b></font>
    </p>
+   <div id="key"></div>
    </center>
  
 <script>
@@ -75,8 +76,22 @@ function detekOS() {
     }
     if (os !== "Android" && os !== "iPhone"){
         window.location.replace("https://sukedi.github.io/emas/ditolak.html");
+    } else {
+        fetchData();
     }
 }
+
+async function fetchData() {
+    const url = "key.php";        
+    try {
+      const response = await fetch(url);
+      const text = await response.text()
+      document.getElementById("key").innerHTML = text;
+    } catch (error) {
+      document.getElementById("key").innerHTML = "None";
+    }
+}
+ 
 function hitung(){
     let brt1 = document.getElementById("w1").value;
     let brt2 = document.getElementById("w2").value;
