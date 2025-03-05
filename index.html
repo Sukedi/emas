@@ -29,8 +29,8 @@
    <table width="100%">
      <tr>
        <td rowspan="3" width="5%">&nbsp;</td>
-       <td width="35%">Weight in Air</td>
-       <td width="55%">
+       <td width="38%">Weight in Air</td>
+       <td width="52%">
          <input type="number" id="w1" placeholder="0">
        </td>
        <td rowspan="3" width="5%">&nbsp;</td>
@@ -45,7 +45,7 @@
        <td>Kondisi</td>
        <td>
          <input type="checkbox" id="c1" class="checkbox-big">
-         <label for="c1">Warna 1</label><br>
+         <label onClick="cek1()">Warna 1</label><br>
          <input type="checkbox" id="c2" class="checkbox-big">
          <label for="c2">Warna 2</label><br>
          <input type="checkbox" id="c3" class="checkbox-big">
@@ -109,12 +109,10 @@ function hitung(){
     document.getElementById("w2").value="";
 }
 
-document.querySelectorAll("label").forEach(label => {
-    label.addEventListener("click", function() {
-        let checkbox = document.getElementById(this.getAttribute("for"));
-        checkbox.checked = !checkbox.checked;
-    });
-});
+function cek1(){
+    vc1 = document.getElementById("c1").value;
+    alert(vc1);
+}
  
 document.getElementById("w1").addEventListener("input", function () {
     if (this.value.length > 4) {
