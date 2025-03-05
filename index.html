@@ -24,7 +24,7 @@
  <body onLoad="detekOS()">
    <center>
    <img src="emas.jpg" width="100"><br>
-   </font size="20px"><b>Hitung Kadar Emas</b></font>
+   <font size="18px"><b>Hitung Kadar Emas</b></font>
    </center><hr>
    <table width="100%">
      <tr>
@@ -42,14 +42,14 @@
        </td>
      </tr>
      <tr>
-       <td valign="top">Kondisi</td>
-       <td valign="top">
+       <td>Kondisi</td>
+       <td>
          <input type="checkbox" id="c1" class="checkbox-big">
-         Warna 1<br>
+         <label onClick="cek1()">Warna 1</label><br>
          <input type="checkbox" id="c2" class="checkbox-big">
-         Warna 2<br>
+         <label onClick="cek2()">Warna 2</label><br>
          <input type="checkbox" id="c3" class="checkbox-big">
-         Warna 3
+         <label onClick="cek3()">Warna 3</label>
        </td>
      </tr>
    </table>
@@ -109,6 +109,10 @@ function hitung(){
     document.getElementById("w2").value="";
 }
 
+function cek1(){
+    lval = document.getElementById("c1").value;
+    document.getElementById("c1").value = !lval;
+}
 document.getElementById("w1").addEventListener("input", function () {
     if (this.value.length > 4) {
         this.value = this.value.slice(0, 4);
