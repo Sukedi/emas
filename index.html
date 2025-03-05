@@ -37,7 +37,7 @@
        <td rowspan="3" width="5%">&nbsp;</td>
        <td width="38%">Weight in Air</td>
        <td width="52%">
-         <input type="number" id="w1" placeholder="0">
+         <input type="text" id="w1" placeholder="0">
        </td>
        <td rowspan="3" width="5%">&nbsp;</td>
      </tr>
@@ -63,7 +63,7 @@
    <p><button onClick="hitung()" style="font-size:20px; font-weight:bold;">
     HITUNG</button></p>
    <p style="background-color:black;"><font size="16px" color="white"><b>
-    Kadar : <span id="hasil">0.00</span></b></font>
+    <span id="hasil">Kadar : 0.00</span></b></font>
    </p>
    <div id="key"></div>
    </center>
@@ -110,7 +110,7 @@ function hitung(){
         return;
     }
     hsl=brt1/brt2;
-    document.getElementById("hasil").innerHTML= hsl.toFixed(2);
+    document.getElementById("hasil").innerHTML= "Kadar : "+hsl.toFixed(2);
     document.getElementById("w1").value="";
     document.getElementById("w2").value="";
     document.getElementById("c1").checked = false;
