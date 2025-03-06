@@ -193,8 +193,8 @@ async function cekExist(newNumber) {
     const textData = await response.text();
     const rows = textData.split("\n").map(row => row.trim()).filter(row => row !== "");
     const isExist = rows.some(row => row.startsWith(newNumber + ","));
+    usrx="Username tak terdaftar. <a href='ndaftar.html'>Klik di sini untuk mendaftar</a>";
     if (isExist) {
-       usrx="Username tak terdaftar. <a href='ndaftar.html'>Klik di sini untuk mendaftar</a>";
        const lines = textData.split("\n").map(line => line.split(", ").map(item => item.trim()));
        lines.forEach((row, i) => {
           row.forEach((col, j) => {
@@ -203,8 +203,8 @@ async function cekExist(newNumber) {
           }
           });
         });
-        document.getElementById("usr").innerHTML= usrx;
-    }
+     }
+     document.getElementById("usr").innerHTML= usrx;
 }
 </script>
 </body>
