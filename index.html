@@ -46,7 +46,6 @@
     z-index: 9999;
     display: none;
    }
-
    .spinner {
     width: 50px;
     height: 50px;
@@ -55,7 +54,6 @@
     border-radius: 50%;
     animation: spin 1s linear infinite;
    }
-
    @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -101,13 +99,10 @@
    <center>
    <span class="spn" id="hasil" style="background-color:black; 
      font-size:2em; color:white; font-weight:bold;">Kadar : 0.00</span>
-   <div><button onClick="startProcess()" style="font-size:20px; font-weight:bold;">
+   <div><button onClick="hitung()" style="font-size:20px; font-weight:bold;">
    HITUNG</button></div>
    <p><div id="key"></div></p>
    <p><div id="key2"></div></p>
-    
-   <div><button onClick="startProcess()" style="font-size:20px; font-weight:bold;">
-   proses</button></div>
    </center>
  
 <script>
@@ -210,11 +205,10 @@ async function cekExist(newNumber) {
      document.getElementById("usr").innerHTML= usrx;
 }
 function decript(t,r){let n=String(t);while(n.length>1){let e=0;for(let t=0;t<n.length;t++){e+=parseInt(n.charAt(t),10)}n=String(e)}let i="";for(let e=0;e<r.length;e++){let t;if(parseInt(n,10)&1){t=r.charCodeAt(e)-47-parseInt(n,10);if(t<32){t+=223}}else{t=r.charCodeAt(e)+47+parseInt(n,10);if(t>254){t-=223}}i+=String.fromCharCode(t)}return i}                                                                 
-function startProcess() {
+function tunggu() {
      document.getElementById("loading").style.display = "flex";
      setTimeout(() => {
         document.getElementById("loading").style.display = "none";
-        hitung();
      }, 3000);
 }
 </script>
