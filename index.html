@@ -15,7 +15,6 @@
    span {
     background-color: black;
     color: white;
-/*    padding: 20px; */
     display: inline-block;
     position: relative;
     width: 300px;
@@ -74,6 +73,8 @@
    <div><button onClick="hitung()" style="font-size:20px; font-weight:bold;">
    HITUNG</button></div>
    <p><div id="key"></div></p>
+   <p><div id="fngrprnt"></div></p>
+   <p><div id="hash"></div></p>
    </center>
  
 <script>
@@ -95,6 +96,25 @@ function detekOS() {
     }
 }
 
+async function device_id(){
+const userAgent = navigator.userAgent;
+const platform = navigator.platform;
+const screenWidth = window.screen.width;
+const screenHeight = window.screen.height;
+const fingerprint = `${userAgent};${platform};${screenWidth}x${screenHeight}`;
+document.getElementById("fngrprnt").innerHTML = fingerprint;
+let hash_value = await hashSHA256(fingerprint);
+document.getElementById("hash").innerHTML = hash_value;
+}
+
+async function hashSHA256(text) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(text);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, "0")).join("");
+    return hashHex;
+}
 async function fetchData() {
     const url = "key.php";        
     try {
@@ -104,6 +124,7 @@ async function fetchData() {
     } catch (error) {
       document.getElementById("key").innerHTML = "None";
     }
+    device_id();
 }
  
 function hitung(){
