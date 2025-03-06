@@ -1,12 +1,12 @@
 let hasil = document.getElementById("hasil");
 let input = document.getElementById("w1");
-// disini parameter warna...
 input.addEventListener("input", function() {
 hasil.style.left = "-50px";
 hasil.style.opacity = "0"; });
 function showHasil(){ hasil.style.left = "50%"; hasil.style.opacity = "1"; }
 function hitung(){
-    await startProcess();
+    tunggu();
+    // disini parameter warna...
     let brt1 = document.getElementById("w1").value;
     let brt2 = document.getElementById("w2").value;
     if (brt1 * brt2 == 0){
