@@ -1,6 +1,12 @@
-let coder = document.getElementById("key").innerHTML;
 let hasil = document.getElementById("hasil");
 let input = document.getElementById("w1");
+const url = "key.php";        
+try {
+    const response = await fetch(url);
+    const coder = await response.text()
+} catch (error) {
+    alert("Error: "+error);
+}
 alert(coder);
 encod = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ");
 alert(coder==encod);
