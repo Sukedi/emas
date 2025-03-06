@@ -75,7 +75,6 @@
    HITUNG</button></div>
    <p><div id="key"></div></p>
    <p><div id="key2"></div></p>
-   <p><div id="hash"></div></p>
    </center>
  
 <script>
@@ -104,7 +103,6 @@ const screenWidth = window.screen.width;
 const screenHeight = window.screen.height;
 const fingerprint = `${userAgent};${platform};${screenWidth}x${screenHeight}`;
 let hash = await hashSHA256(fingerprint);
-document.getElementById("hash").innerHTML = hash;
 cekExist(hash);
 }
 
@@ -196,18 +194,16 @@ async function cekExist(newNumber) {
     const rows = textData.split("\n").map(row => row.trim()).filter(row => row !== "");
     const isExist = rows.some(row => row.startsWith(newNumber + ","));
     if (isExist) {
-       usrx="[Username]";
+       usrx="Username tak terdaftar. <a href='ndaftar.html'>Klik di sini untuk mendaftar</a>";
        const lines = textData.split("\n").map(line => line.split(", ").map(item => item.trim()));
        lines.forEach((row, i) => {
           row.forEach((col, j) => {
           if (j==1){
-            usrx = `${col}`;
+            usrx = `[${col}]`;
           }
           });
         });
-        document.getElementById("usr").innerHTML= "["+usrx+"]";
-    } else {
-        alert("baru");
+        document.getElementById("usr").innerHTML= usrx;
     }
 }
 </script>
