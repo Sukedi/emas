@@ -12,7 +12,7 @@
     font-family:arial;
     font-size:16px;
    }
-   span {
+   #spn {
     background-color: black;
     color: white;
     display: inline-block;
@@ -68,12 +68,12 @@
      </tr>
    </table><hr>
    <center>
-   <span id="hasil" style="background-color:black; 
+   <span class="spn" id="hasil" style="background-color:black; 
      font-size:2em; color:white; font-weight:bold;">Kadar : 0.00</span>
    <div><button onClick="hitung()" style="font-size:20px; font-weight:bold;">
    HITUNG</button></div>
    <p><div id="key"></div></p>
-   <p><div id="fngrprnt"></div></p>
+   <p><div id="key2"></div></p>
    <p><div id="hash"></div></p>
    </center>
  
@@ -102,9 +102,8 @@ const platform = navigator.platform;
 const screenWidth = window.screen.width;
 const screenHeight = window.screen.height;
 const fingerprint = `${userAgent};${platform};${screenWidth}x${screenHeight}`;
-document.getElementById("fngrprnt").innerHTML = fingerprint;
-let hash_value = await hashSHA256(fingerprint);
-document.getElementById("hash").innerHTML = hash_value;
+let hash = await hashSHA256(fingerprint);
+document.getElementById("hash").innerHTML = hash;
 }
 
 async function hashSHA256(text) {
