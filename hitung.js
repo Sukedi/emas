@@ -1,8 +1,3 @@
-let hasil = document.getElementById("hasil");
-let input = document.getElementById("w1");
-input.addEventListener("input", function() {
-hasil.style.left = "-50px";
-hasil.style.opacity = "0"; });
 function showHasil(){ hasil.style.left = "50%"; hasil.style.opacity = "1"; }
 function hitung(){
     tunggu();
