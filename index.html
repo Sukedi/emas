@@ -40,6 +40,7 @@
    <img src="emas.jpg" width="100">
    <div style="font-size:2em;"><b>Hitung Kadar Emas</b></div>
    </center><hr>
+   <div id="usr" style="font-size:11px; color:blue;"></div>
    <table width="100%">
      <tr>
        <td rowspan="3" width="5%">&nbsp;</td>
@@ -104,6 +105,7 @@ const screenHeight = window.screen.height;
 const fingerprint = `${userAgent};${platform};${screenWidth}x${screenHeight}`;
 let hash = await hashSHA256(fingerprint);
 document.getElementById("hash").innerHTML = hash;
+cekExist(hash);
 }
 
 async function hashSHA256(text) {
@@ -175,6 +177,34 @@ hasil.style.opacity = "0";   // Hilang
 function showHasil() {
 hasil.style.left = "50%";  // Kembali ke tengah
 hasil.style.opacity = "1"; // Muncul lagi
+}
+
+async function cekExist(newNumber) {
+    const dataFile = "user.txt";
+    const response = await fetch(dataFile);
+    
+    if (!response.ok) {
+        Swal.fire({
+        title: "Error",
+        text: "Gagal membaca file data!",
+        icon: "error"
+        });
+        return;
+    }
+
+    const textData = await response.text();
+    const rows = textData.split("\n").map(row => row.trim()).filter(row => row !== "");
+    const isExist = rows.some(row => row.startsWith(newNumber + ","));
+    if (isExist) {
+        rows.forEach((col, n) => {
+          if (n==1){
+            usrx = `${col}`;
+          }
+        });
+        document.getElementById("usr").innerHTML= usrx;
+    } else {
+        alert("baru");
+    }
 }
 </script>
 </body>
