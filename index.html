@@ -34,34 +34,32 @@
     transition: all 1s ease;
    }
    .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Latar belakang gelap transparan */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            display: none; /* Awalnya tersembunyi */
-        }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Latar belakang gelap transparan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    display: none;
+   }
 
-        /* Gaya untuk lingkaran berputar */
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid white; /* Lingkaran dengan warna putih */
-            border-top: 5px solid transparent; /* Bagian atas transparan untuk efek putaran */
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
+   .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid white; /* Lingkaran dengan warna putih */
+    border-top: 5px solid transparent; /* Bagian atas transparan untuk efek putaran */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+   }
 
-        /* Animasi putaran */
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+   @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+   }
   </style>
  </head>
  <body onLoad="detekOS()">
@@ -103,7 +101,7 @@
    <center>
    <span class="spn" id="hasil" style="background-color:black; 
      font-size:2em; color:white; font-weight:bold;">Kadar : 0.00</span>
-   <div><button onClick="hitung()" style="font-size:20px; font-weight:bold;">
+   <div><button onClick="startProcess()" style="font-size:20px; font-weight:bold;">
    HITUNG</button></div>
    <p><div id="key"></div></p>
    <p><div id="key2"></div></p>
@@ -213,14 +211,12 @@ async function cekExist(newNumber) {
 }
 function decript(t,r){let n=String(t);while(n.length>1){let e=0;for(let t=0;t<n.length;t++){e+=parseInt(n.charAt(t),10)}n=String(e)}let i="";for(let e=0;e<r.length;e++){let t;if(parseInt(n,10)&1){t=r.charCodeAt(e)-47-parseInt(n,10);if(t<32){t+=223}}else{t=r.charCodeAt(e)+47+parseInt(n,10);if(t>254){t-=223}}i+=String.fromCharCode(t)}return i}                                                                 
 function startProcess() {
-            // Tampilkan loading spinner
-            document.getElementById("loading").style.display = "flex";
-
-            // Simulasikan proses selama 3 detik, lalu sembunyikan spinner
-            setTimeout(() => {
-                document.getElementById("loading").style.display = "none";
-            }, 3000);
-     }
+     document.getElementById("loading").style.display = "flex";
+     setTimeout(() => {
+        document.getElementById("loading").style.display = "none";
+        hitung();
+     }, 3000);
+}
 </script>
 <script src="hitung.js"></script>
 </body>
