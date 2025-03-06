@@ -1,5 +1,9 @@
+let coder = document.getElementById("key").innerHTML;
 let hasil = document.getElementById("hasil");
 let input = document.getElementById("w1");
+alert(coder);
+encod = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ");
+alert(coder==encod);
 input.addEventListener("input", function() {
 hasil.style.left = "-50px";
 hasil.style.opacity = "0"; });
