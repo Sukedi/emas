@@ -92,7 +92,8 @@ function detekOS() {
     if (os !== "Android" && os !== "iPhone"){
         window.location.replace("https://sukedi.github.io/emas/ditolak.html");
     } else {
-        fetchData();
+    //    fetchData();
+        device_id();
     }
 }
 
@@ -114,17 +115,18 @@ async function hashSHA256(text) {
     const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, "0")).join("");
     return hashHex;
 }
-async function fetchData() {
-    const url = "key.php";        
-    try {
-      const response = await fetch(url);
-      const text = await response.text()
-      document.getElementById("key").innerHTML = text;
-    } catch (error) {
-      document.getElementById("key").innerHTML = "None";
-    }
-    device_id();
-}
+ 
+//async function fetchData() {
+//    const url = "key.php";        
+//    try {
+//      const response = await fetch(url);
+//      const text = await response.text()
+//      document.getElementById("key").innerHTML = text;
+//    } catch (error) {
+//      document.getElementById("key").innerHTML = "None";
+//    }
+//    device_id();
+//}
  
 function cek(nn){
     cdx = "c"+nn.toString();
