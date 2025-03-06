@@ -40,7 +40,7 @@
    <img src="emas.jpg" width="100">
    <div style="font-size:2em;"><b>Hitung Kadar Emas</b></div>
    </center><hr>
-   <div id="usr" style="font-size:11px; color:blue;"></div>
+   <div id="usr" style="font-size:11px; color:blue;">Username</div>
    <table width="100%">
      <tr>
        <td rowspan="3" width="5%">&nbsp;</td>
@@ -196,6 +196,7 @@ async function cekExist(newNumber) {
     const rows = textData.split("\n").map(row => row.trim()).filter(row => row !== "");
     const isExist = rows.some(row => row.startsWith(newNumber + ","));
     if (isExist) {
+        usrx="";
         rows.forEach((col, n) => {
           if (n==1){
             usrx = `${col}`;
