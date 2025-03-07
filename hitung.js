@@ -20,6 +20,6 @@ async function hitung(){
     document.getElementById("c2").checked = false;
     document.getElementById("c3").checked = false;
     setTimeout(() => {
-        await showHasil();
+        showHasil();
      }, 3000);
 }
