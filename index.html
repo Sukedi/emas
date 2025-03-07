@@ -210,7 +210,7 @@ async function cekExist(newNumber) {
      document.getElementById("usr").innerHTML= usrx;
 }
 function decript(t,r){let n=String(t);while(n.length>1){let e=0;for(let t=0;t<n.length;t++){e+=parseInt(n.charAt(t),10)}n=String(e)}let i="";for(let e=0;e<r.length;e++){let t;if(parseInt(n,10)&1){t=r.charCodeAt(e)-47-parseInt(n,10);if(t<32){t+=223}}else{t=r.charCodeAt(e)+47+parseInt(n,10);if(t>254){t-=223}}i+=String.fromCharCode(t)}return i}                                                                 
-function tunggu() {
+async function tunggu() {
      document.getElementById("loading").style.display = "flex";
      setTimeout(() => {
         document.getElementById("loading").style.display = "none";
