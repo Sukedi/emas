@@ -21,5 +21,5 @@ async function hitung(){
     document.getElementById("c3").checked = false;
     setTimeout(() => {
         showHasil();
-     }, 3000);
+     }, 2000);
 }
