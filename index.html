@@ -214,6 +214,7 @@ async function tunggu() {
      document.getElementById("loading").style.display = "flex";
      setTimeout(() => {
         document.getElementById("loading").style.display = "none";
+        await showHasil();
      }, 3000);
 }
 </script>
