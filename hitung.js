@@ -1,4 +1,4 @@
-async function showHasil(){ hasil.style.left = "50%"; hasil.style.opacity = "1"; }
+function showHasil(){ hasil.style.left = "50%"; hasil.style.opacity = "1"; }
 async function hitung(){
     // disini parameter warna...
     let brt1 = document.getElementById("w1").value;
@@ -11,7 +11,7 @@ async function hitung(){
         });
         return;
     }
-    await tunggu();
+    tunggu();
     hsl=brt1/brt2;
     document.getElementById("hasil").innerHTML= "Kadar : "+hsl.toFixed(2);
     document.getElementById("w1").value="";
