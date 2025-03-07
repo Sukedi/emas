@@ -1,4 +1,4 @@
-function showHasil(){ hasil.style.left = "50%"; hasil.style.opacity = "1"; }
+async function showHasil(){ hasil.style.left = "50%"; hasil.style.opacity = "1"; }
 async function hitung(){
     // disini parameter warna...
     let brt1 = document.getElementById("w1").value;
@@ -19,5 +19,5 @@ async function hitung(){
     document.getElementById("c1").checked = false;
     document.getElementById("c2").checked = false;
     document.getElementById("c3").checked = false;
-    showHasil();
+    await showHasil();
 }
