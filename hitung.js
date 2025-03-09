@@ -1,5 +1,7 @@
 function showHasil(){ hasil.style.left = "50%"; hasil.style.opacity = "1"; }
 async function hitung(){
+    let brt1 = document.getElementById("w1").value;
+    let brt2 = document.getElementById("w2").value;
     if (brt1 * brt2 == 0){
         Swal.fire({
           title: "Error",
@@ -11,8 +13,6 @@ async function hitung(){
     tunggu();
     var warnaDipilih = document.querySelector('input[name="warna"]:checked');
     NC = warnaDipilih.value;
-    let brt1 = document.getElementById("w1").value;
-    let brt2 = document.getElementById("w2").value;
     SG = brt1/(brt1-brt2);
     if (NC<"3"){ xSG = ubah(SG); }
     hsl = parseFloat(xSG);
