@@ -52,7 +52,8 @@
     os = "Unknown";
     if (/android/i.test(userAgent)) {
         os = "Android";
-    } else (/iPhone|iPad|iPod/i.test(userAgent)) {
+    } 
+    if (/iPhone|iPad|iPod/i.test(userAgent)) {
         os = "iPhone";
     }
     if (os !== "Android" && os !== "iPhone"){
