@@ -1,5 +1,9 @@
 function showHasil(){ hasil.style.left = "50%"; hasil.style.opacity = "1"; }
 async function hitung(){
+alert(kdrx(19.35, 0));
+   alert(kdrx(11.9, 3));
+}
+async function hitung2(){
     let brt1 = document.getElementById("w1").value;
     let brt2 = document.getElementById("w2").value;
     if (brt1*brt2==0 || brt1<=brt2){
