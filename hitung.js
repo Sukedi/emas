@@ -10,12 +10,12 @@ async function hitung(){
         });
         return;
     }
-    tunggu();
-    var warnaDipilih = document.querySelector('input[name="warna"]:checked');
-    NC = warnaDipilih.value;
+//    tunggu();
+//    var warnaDipilih = document.querySelector('input[name="warna"]:checked');
+//    NC = warnaDipilih.value;
     SG = brt1/(brt1-brt2);
-    if (NC<"3"){ xSG = ubah(SG); }
-    hsl = 10.02; //parseFloat(xSG);
+//    if (NC<"3"){ xSG = ubah(SG); }
+    hsl = SG; //parseFloat(xSG);
     document.getElementById("hasil").innerHTML= "Kadar : "+hsl.toFixed(2);
     document.getElementById("w1").value="";
     document.getElementById("w2").value="";
