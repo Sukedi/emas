@@ -1,1 +1,158 @@
-HITUNG KADAR
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta property='og:title' content='Hitung Kadar Emas'>
+  <meta name='description' content='Berdasarkan berat luar & dalam air.'>
+  <meta property="og:image" content='https://sukedi.github.io/emas/emas.jpg'>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>Hitung Kadar Emas</title>
+  <style>
+   body, input, table, tr, th, td {
+    font-family:arial;
+    font-size:16px;
+   }
+   .spn {
+    background-color: black;
+    color: white;
+    display: inline-block;
+    position: relative;
+    width: 300px;
+    overflow: hidden;
+   }
+   input[type="number"] {
+    width: 125px;
+   }
+   .checkbox-big {
+    transform: scale(1.3);
+    margin: 5px;
+   }
+   #hasil {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 1s ease;
+   }
+   .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Latar belakang gelap transparan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    display: none;
+   }
+   .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid white; /* Lingkaran dengan warna putih */
+    border-top: 5px solid transparent; /* Bagian atas transparan untuk efek putaran */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+   }
+   @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+   }
+  </style>
+ </head>
+ <body onLoad="fetchData()">
+   <div class="overlay" id="loading">
+        <div class="spinner"></div>
+   </div>
+   <div id="usr" style="font-size:11px; color:blue;"></div>
+   <center>
+   <img src="emas.jpg" width="100">
+   <div style="font-size:2em;"><b>Hitung Kadar Emas</b></div>
+   </center><hr>
+   <table width="100%">
+     <tr>
+       <td rowspan="3" width="5%">&nbsp;</td>
+       <td width="38%">Weight in Air</td>
+       <td width="52%">
+         <input type="number" id="w1" placeholder="0">
+       </td>
+       <td rowspan="3" width="5%">&nbsp;</td>
+     </tr>
+     <tr>
+       <td>Weight in Water</td>
+       <td>
+         <input type="number" id="w2" placeholder="0">
+       </td>
+     </tr>
+     <tr>
+       <td>Kondisi</td>
+       <td>
+         <input type="checkbox" id="c1" class="checkbox-big">
+         <label onClick="cek(1)">Warna 1</label><br>
+         <input type="checkbox" id="c2" class="checkbox-big">
+         <label onClick="cek(2)">Warna 2</label><br>
+         <input type="checkbox" id="c3" class="checkbox-big">
+         <label onClick="cek(3)">Warna 3</label>
+       </td>
+     </tr>
+   </table><hr>
+   <center>
+   <span class="spn" id="hasil" style="background-color:black; 
+     font-size:2em; color:white; font-weight:bold;">Kadar : 0.00</span>
+   <div><button onClick="hitung()" style="font-size:20px; font-weight:bold;">
+   HITUNG</button></div>
+   <p><div id="key"></div></p>
+   <p><div id="key2"></div></p>
+   </center>
+ 
+<script>
+let hasil = document.getElementById("hasil");
+let input = document.getElementById("w1");
+input.addEventListener("input", function() {
+hasil.style.left = "-50px";
+hasil.style.opacity = "0"; });
+ 
+async function fetchData() {
+    const url = "key.php";        
+    try {
+      const response = await fetch(url);
+      const text = await response.text()
+      document.getElementById("key").innerHTML = text;
+    } catch (error) {
+      document.getElementById("key").innerHTML = "None";
+    }
+    encod = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ");
+    document.getElementById("key2").innerHTML = encod;
+    device_id();
+}
+ 
+function cek(nn){
+    cdx = "c"+nn.toString();
+    vc1 = document.getElementById(cdx).checked;
+    document.getElementById(cdx).checked = !vc1;
+}
+ 
+document.getElementById("w1").addEventListener("input", function () {
+    if (this.value.length > 4) {
+        this.value = this.value.slice(0, 4);
+    }
+});
+
+document.getElementById("w2").addEventListener("input", function () {
+    if (this.value.length > 4) {
+        this.value = this.value.slice(0, 4);
+    }
+});
+
+function decript(t,r){let n=String(t);while(n.length>1){let e=0;for(let t=0;t<n.length;t++){e+=parseInt(n.charAt(t),10)}n=String(e)}let i="";for(let e=0;e<r.length;e++){let t;if(parseInt(n,10)&1){t=r.charCodeAt(e)-47-parseInt(n,10);if(t<32){t+=223}}else{t=r.charCodeAt(e)+47+parseInt(n,10);if(t>254){t-=223}}i+=String.fromCharCode(t)}return i}                                                                 
+function tunggu() {
+     document.getElementById("loading").style.display = "flex";
+     setTimeout(() => {
+        document.getElementById("loading").style.display = "none";
+     }, 2000);
+}
+</script>
+<script src="user.js"></script>
+<script src="hitung.js"></script>
+</body>
+</html>
