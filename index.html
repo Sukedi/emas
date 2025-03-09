@@ -59,7 +59,6 @@
     if (os !== "Android" && os !== "iPhone"){
         window.location.replace("https://sukedi.github.io/emas/ditolak.html");
     }
-    alert("hai os");
     device_id();
   }
   async function device_id(){
@@ -80,7 +79,6 @@
     return hashHex;
   }
   async function cekExist(newNumber) {
-    alert("cek");
     const dataFile = "user.txt";
     const response = await fetch(dataFile);
     if (!response.ok) {
