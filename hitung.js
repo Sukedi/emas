@@ -2,15 +2,15 @@ function showHasil(){ hasil.style.left = "50%"; hasil.style.opacity = "1"; }
 async function hitung(){
     let brt1 = document.getElementById("w1").value;
     let brt2 = document.getElementById("w2").value;
-    if (brt1 * brt2 == 0){
+    if (brt1*brt2==0 || brt1-brt2==0 || brt1<brt2){
         Swal.fire({
           title: "Error",
-          text: "Berat tidak boleh nol!",
+          text: "Cek entry berat!",
           icon: "error"
         });
         return;
     }
-//    tunggu();
+    tunggu();
 //    var warnaDipilih = document.querySelector('input[name="warna"]:checked');
 //    NC = warnaDipilih.value;
     SG = brt1/(brt1-brt2);
