@@ -2,7 +2,7 @@ function showHasil(){ hasil.style.left = "50%"; hasil.style.opacity = "1"; }
 async function hitung(){
     let brt1 = document.getElementById("w1").value;
     let brt2 = document.getElementById("w2").value;
-    if (brt1*brt2==0 || brt1-brt2==0 || brt1<brt2){
+    if (brt1*brt2==0 || brt1<=brt2){
         Swal.fire({
           title: "Error",
           text: "Cek entry berat!",
