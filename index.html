@@ -60,7 +60,7 @@
    }
   </style>
  </head>
- <body onLoad="detekOS()">
+ <body onLoad="fetchData()">
    <div class="overlay" id="loading">
         <div class="spinner"></div>
    </div>
@@ -111,23 +111,6 @@ let input = document.getElementById("w1");
 input.addEventListener("input", function() {
 hasil.style.left = "-50px";
 hasil.style.opacity = "0"; });
-function detekOS() {
-    let userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    if (/android/i.test(userAgent)) {
-        os = "Android";
-    } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
-        os = "iPhone";
-    } else if (/Windows NT/i.test(userAgent)) {
-        os = "Windows";
-    } else {
-        os = "Unknown";
-    }
-    if (os !== "Android" && os !== "iPhone"){
-        window.location.replace("https://sukedi.github.io/emas/ditolak.html");
-    } else {
-        fetchData();
-    }
-}
 
 async function device_id(){
 const userAgent = navigator.userAgent;
