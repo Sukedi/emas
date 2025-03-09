@@ -20,7 +20,7 @@
   <div id="usr" style="font-size:11px; color:yellow"></div>
   <center>
     <img src="emas.gif" width="100"><hr>
-    <h4>Selamat datang di website emas. 
+    <h4 style="color:#FFD700;">Selamat datang di website emas. 
       <br>Silakan pilih menu di bawah ini.</h4>
     </center>
     <p><ul>
@@ -57,7 +57,7 @@
     }
     if (os !== "Android" && os !== "iPhone"){
         window.location.replace("https://sukedi.github.io/emas/ditolak.html");
-    }
+    } else { device_id(); }
   }
   async function device_id(){
     const userAgent = navigator.userAgent;
