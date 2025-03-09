@@ -1,158 +1,108 @@
-<!DOCTYPE html>
 <html>
- <head>
+<head>
   <meta property='og:title' content='Hitung Kadar Emas'>
   <meta name='description' content='Berdasarkan berat luar & dalam air.'>
   <meta property="og:image" content='https://sukedi.github.io/emas/emas.jpg'>
   <meta name="viewport" content="width=device-width, user-scalable=no">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <title>Hitung Kadar Emas</title>
+  <title>Selamat Datang</title>
   <style>
-   body, input, table, tr, th, td {
-    font-family:arial;
-    font-size:16px;
-   }
-   .spn {
-    background-color: black;
-    color: white;
-    display: inline-block;
-    position: relative;
-    width: 300px;
-    overflow: hidden;
-   }
-   input[type="number"] {
-    width: 125px;
-   }
-   .checkbox-big {
-    transform: scale(1.3);
-    margin: 5px;
-   }
-   #hasil {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: all 1s ease;
-   }
-   .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Latar belakang gelap transparan */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    display: none;
-   }
-   .spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid white; /* Lingkaran dengan warna putih */
-    border-top: 5px solid transparent; /* Bagian atas transparan untuk efek putaran */
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-   }
-   @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-   }
+  body {
+    background: linear-gradient(to bottom, navy, royalblue, skyblue, lightblue);
+    height: 100vh;
+    margin: 0;
+    font-family: arial;
+    font-size: 14px;
+  }
   </style>
- </head>
- <body onLoad="fetchData()">
-   <div class="overlay" id="loading">
-        <div class="spinner"></div>
-   </div>
-   <div id="usr" style="font-size:11px; color:blue;"></div>
-   <center>
-   <img src="emas.jpg" width="100">
-   <div style="font-size:2em;"><b>Hitung Kadar Emas</b></div>
-   </center><hr>
-   <table width="100%">
-     <tr>
-       <td rowspan="3" width="5%">&nbsp;</td>
-       <td width="38%">Weight in Air</td>
-       <td width="52%">
-         <input type="number" id="w1" placeholder="0">
-       </td>
-       <td rowspan="3" width="5%">&nbsp;</td>
-     </tr>
-     <tr>
-       <td>Weight in Water</td>
-       <td>
-         <input type="number" id="w2" placeholder="0">
-       </td>
-     </tr>
-     <tr>
-       <td>Kondisi</td>
-       <td>
-         <input type="checkbox" id="c1" class="checkbox-big">
-         <label onClick="cek(1)">Warna 1</label><br>
-         <input type="checkbox" id="c2" class="checkbox-big">
-         <label onClick="cek(2)">Warna 2</label><br>
-         <input type="checkbox" id="c3" class="checkbox-big">
-         <label onClick="cek(3)">Warna 3</label>
-       </td>
-     </tr>
-   </table><hr>
-   <center>
-   <span class="spn" id="hasil" style="background-color:black; 
-     font-size:2em; color:white; font-weight:bold;">Kadar : 0.00</span>
-   <div><button onClick="hitung()" style="font-size:20px; font-weight:bold;">
-   HITUNG</button></div>
-   <p><div id="key"></div></p>
-   <p><div id="key2"></div></p>
-   </center>
- 
-<script>
-let hasil = document.getElementById("hasil");
-let input = document.getElementById("w1");
-input.addEventListener("input", function() {
-hasil.style.left = "-50px";
-hasil.style.opacity = "0"; });
- 
-async function fetchData() {
-    const url = "key.php";        
-    try {
-      const response = await fetch(url);
-      const text = await response.text()
-      document.getElementById("key").innerHTML = text;
-    } catch (error) {
-      document.getElementById("key").innerHTML = "None";
+</head>
+<body onLoad="detekOS()">
+  <div id="usr" style="font-size:11px; color:yellow"></div>
+  <center>
+    <img src="emas.gif" width="100"><hr>
+    <h4>Selamat datang di website emas. 
+      <br>Silakan pilih menu di bawah ini.</h4>
+    </center>
+    <p><ul>
+      <li><a href="hAx7vq0sw2k.html"><b>Registrasi</b></a></li>
+      Diperlukan untuk memastikan 
+      anda menjadi pengguna resmi 
+      program-program yang tersaji 
+      di website ini sehingga anda 
+      berhak atas layanan kami.
+      <li><a href="hAx9dE2g0nW.html"><b>Hitung Kadar Emas</b></a></li>
+      Program untuk menghitung kadar 
+      emas berdasarkan berat kering, 
+      berat basah dan warna.
+      <li><a href="hAx2yQh4fKl.html"><b>Struk Menggunakan Berat</b></a></li>
+      Struk jual-beli menggunakan 
+      berat basah sebagai parameter dalam 
+      menghitung kadar emas.
+      <li><a href="hAx3jYd0dFb.html"><b>Struk Menggunakan Kadar</b></a></li>
+      Struk jual-beli menggunakan 
+      kadar emas yang sudah diketahui.
+    </ul></p><hr>
+  <center>
+    <p style="font-size:11px; color:green;">
+      Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
+  </center>
+  <script>
+  function detekOS() {
+    let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    os = "Unknown";
+    if (/android/i.test(userAgent)) {
+        os = "Android";
+    } else (/iPhone|iPad|iPod/i.test(userAgent)) {
+        os = "iPhone";
     }
-    encod = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ");
-    document.getElementById("key2").innerHTML = encod;
-    device_id();
-}
- 
-function cek(nn){
-    cdx = "c"+nn.toString();
-    vc1 = document.getElementById(cdx).checked;
-    document.getElementById(cdx).checked = !vc1;
-}
- 
-document.getElementById("w1").addEventListener("input", function () {
-    if (this.value.length > 4) {
-        this.value = this.value.slice(0, 4);
+    if (os !== "Android" && os !== "iPhone"){
+        window.location.replace("https://sukedi.github.io/emas/ditolak.html");
     }
-});
-
-document.getElementById("w2").addEventListener("input", function () {
-    if (this.value.length > 4) {
-        this.value = this.value.slice(0, 4);
+  }
+  async function device_id(){
+    const userAgent = navigator.userAgent;
+    const platform = navigator.platform;
+    const screenWidth = window.screen.width;
+    const screenHeight = window.screen.height;
+    const fingerprint = `${userAgent};${platform};${screenWidth}x${screenHeight}`;
+    let hash = await hashSHA256(fingerprint);
+    cekExist(hash);
+  }
+  async function hashSHA256(text) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(text);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, "0")).join("");
+    return hashHex;
+  }
+  async function cekExist(newNumber) {
+    const dataFile = "user.txt";
+    const response = await fetch(dataFile);
+    if (!response.ok) {
+        Swal.fire({
+        title: "Error",
+        text: "Gagal membaca file data!",
+        icon: "error"
+        });
+        return;
     }
-});
-
-function decript(t,r){let n=String(t);while(n.length>1){let e=0;for(let t=0;t<n.length;t++){e+=parseInt(n.charAt(t),10)}n=String(e)}let i="";for(let e=0;e<r.length;e++){let t;if(parseInt(n,10)&1){t=r.charCodeAt(e)-47-parseInt(n,10);if(t<32){t+=223}}else{t=r.charCodeAt(e)+47+parseInt(n,10);if(t>254){t-=223}}i+=String.fromCharCode(t)}return i}                                                                 
-function tunggu() {
-     document.getElementById("loading").style.display = "flex";
-     setTimeout(() => {
-        document.getElementById("loading").style.display = "none";
-     }, 2000);
-}
-</script>
-<script src="user.js"></script>
-<script src="hitung.js"></script>
+    const textData = await response.text();
+    const rows = textData.split("\n").map(row => row.trim()).filter(row => row !== "");
+    const isExist = rows.some(row => row.startsWith(newNumber + ","));
+    usrx="Username tak terdaftar. <a href='__hAx7vq0sw2k.html'>Klik di sini untuk mendaftar</a>";
+    if (isExist) {
+       const lines = textData.split("\n").map(line => line.split(", ").map(item => item.trim()));
+       lines.forEach((row, i) => {
+          row.forEach((col, j) => {
+          if (j==1){
+            usrx = `[${col}]`;
+          }
+          });
+        });
+     }
+     document.getElementById("usr").innerHTML= usrx;
+  }
+  </script>
 </body>
 </html>
