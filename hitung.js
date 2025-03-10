@@ -11,7 +11,6 @@ async function hitung(){
         return;
     }
     tunggu();
-    document.getElementById("key2").innerHTML="__xHd";
     MY = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ").trim();
     brt0 = document.getElementById("emas").innerHTML;
     AH = brt0.replace("amp;","").trim();
@@ -20,7 +19,6 @@ async function hitung(){
     SG = brt1/(brt1-brt2);
     DH = ubah(SG,NC);
     hsl = kdrx(DH,NC,MY,AH);
-//    hsl=83.47;
     document.getElementById("hasil").innerHTML= "Kadar : "+hsl.toFixed(2);
     document.getElementById("w1").value="";
     document.getElementById("w2").value="";
