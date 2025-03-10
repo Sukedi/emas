@@ -12,7 +12,6 @@ async function hitung(){
     }
     tunggu();
     ratio = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ"); nxy=(brt1-brt1);
-    alert(ratio);
     var warnaDipilih = document.querySelector('input[name="warna"]:checked');
     NC = warnaDipilih.value;
     SG = brt1/(brt1-brt2);
