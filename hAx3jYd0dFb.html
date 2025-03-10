@@ -31,7 +31,7 @@
     <td><input type="text" id="kode" setfocus></td></tr>
     <tr><td>Berat (gram)</td><td>:</td>
     <td><input type="number" id="berat" placeholder="0"></td></tr>
-    <tr><td>Harga per gram</td><td>:</td>
+    <tr><td>Harga / gram</td><td>:</td>
     <td><input type="number" id="harga" placeholder="0"></td></tr>
   </table>
   <p align="center"><button onClick="simpan()" style="font-size:20px; font-weight:bold;">Simpan</button></p>
@@ -63,8 +63,8 @@
   }
   function reset(){
     document.getElementById("kode").value = "";
-    document.getElementById("brt").value = "";
-    document.getElementById("hrg").value = "";
+    document.getElementById("berat").value = "";
+    document.getElementById("harga").value = "";
     prev();
   }
   function prev(){
