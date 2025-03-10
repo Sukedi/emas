@@ -18,7 +18,7 @@ async function hitung(){
     DH = ubah(SG,NC);
     hsl = kdrx(DH,NC);
     brt0 = document.getElementById("emas").innerHTML;
-    brtx = ratio + " - " + brt0;
+    brtx = ratio + " - " + brt0.replace("amp;","");
     alert(brtx);
 //    if (ratio != brt0){ hsl=0; }
     document.getElementById("hasil").innerHTML= "Kadar : "+hsl.toFixed(2);
