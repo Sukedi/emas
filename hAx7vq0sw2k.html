@@ -16,9 +16,15 @@
   }
   </style>
 </head>
-  <body>
-    <center><h2>
-        MENDAFTAR
-    </center></h2>
-  </body>
+<body onLoad="device_id()">
+  <div id="usr" style="font-size:11px; color:#FFD700;"></div>
+  <center>
+    <h4 style="font-size:14px; color:#FFD700;">
+    <img src="emas.gif" width="100"><hr>
+    Pendaftaran<hr></h4>
+  </center>
+  Nama Anda : <input type="text" id="nama" minlength="6" maxlength="12" autofocus>&nbsp;&nbsp;
+  <button onClick="simpan()">Simpan</button>
+  <script src="user.js"></script>
+</body>
 </html>
