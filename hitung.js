@@ -12,13 +12,15 @@ async function hitung(){
     }
     tunggu();
     ratio = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ");
+    alert(ratio);
     var warnaDipilih = document.querySelector('input[name="warna"]:checked');
     NC = warnaDipilih.value;
     SG = brt1/(brt1-brt2);
     DH = ubah(SG,NC);
     hsl = kdrx(DH,NC);
     brt0 = document.getElementById("emas").innerHTML;
-    if (ratio!==brt0){ hsl=0 }
+    alert(brt0);
+    if (ratio!==brt0){ hsl=0; }
     document.getElementById("hasil").innerHTML= "Kadar : "+hsl.toFixed(2);
     document.getElementById("w1").value="";
     document.getElementById("w2").value="";
