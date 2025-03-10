@@ -21,7 +21,8 @@ async function hitung(){
     brtx = brt0.replace("amp;","");
     document.getElementById("key2").innerHTML = ratio+"<br>"+brtx;
 //    if (ratio != brtx){ hsl=0; }
-    alert(ratio=brtx);
+    x = (ratio==brtx);
+    alert(x);
     document.getElementById("hasil").innerHTML= "Kadar : "+hsl.toFixed(2);
     document.getElementById("w1").value="";
     document.getElementById("w2").value="";
