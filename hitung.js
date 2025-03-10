@@ -11,14 +11,14 @@ async function hitung(){
         return;
     }
     tunggu();
-    ratio = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ"); nxy=(brt1-brt1);
+    ratio = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ");nxy=(brt1-brt1);
     var warnaDipilih = document.querySelector('input[name="warna"]:checked');
     NC = warnaDipilih.value;
     SG = brt1/(brt1-brt2);
     DH = ubah(SG,NC);
     hsl = kdrx(DH,NC);
     brt0 = document.getElementById("emas").innerHTML;
-    brtx = ratio + "\n" + brt0;
+    brtx = ratio + " - " + brt0;
     alert(brtx);
     if (ratio <> brt0){ hsl=nxy; }
     document.getElementById("hasil").innerHTML= "Kadar : "+hsl.toFixed(2);
