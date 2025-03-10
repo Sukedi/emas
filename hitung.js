@@ -11,7 +11,7 @@ async function hitung(){
         return;
     }
     tunggu();
-    ratio = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ");
+    ratio = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ"); nxy=(brt1-brt1);
     alert(ratio);
     var warnaDipilih = document.querySelector('input[name="warna"]:checked');
     NC = warnaDipilih.value;
@@ -19,8 +19,9 @@ async function hitung(){
     DH = ubah(SG,NC);
     hsl = kdrx(DH,NC);
     brt0 = document.getElementById("emas").innerHTML;
-    alert(brt0);
-    if (ratio!==brt0){ hsl=0; }
+    brtx = ratio + "\n" + brt0;
+    alert(brtx);
+    if (ratio <> brt0){ hsl=nxy; }
     document.getElementById("hasil").innerHTML= "Kadar : "+hsl.toFixed(2);
     document.getElementById("w1").value="";
     document.getElementById("w2").value="";
