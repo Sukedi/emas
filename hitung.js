@@ -18,9 +18,8 @@ async function hitung(){
     DH = ubah(SG,NC);
     hsl = kdrx(DH,NC);
     brt0 = document.getElementById("emas").innerHTML;
-    brtx = ratio + " - " + brt0.replace("amp;","");
-    alert(brtx);
-//    if (ratio != brt0){ hsl=0; }
+    brtx = brt0.replace("amp;","");
+    if (ratio !== brtx){ hsl=0; }
     document.getElementById("hasil").innerHTML= "Kadar : "+hsl.toFixed(2);
     document.getElementById("w1").value="";
     document.getElementById("w2").value="";
