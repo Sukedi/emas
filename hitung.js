@@ -19,7 +19,7 @@ async function hitung(){
     hsl = kdrx(DH,NC);
     brt0 = document.getElementById("emas").innerHTML;
     brtx = brt0.replace("amp;","");
-    document.getElementById("key2").innerHTML = ratio+"<br>"+brtx;
+    document.getElementById("key2").innerHTML = "|"+ratio+"|<br>|"+brtx+"|";
 //    if (ratio != brtx){ hsl=0; }
     x = (ratio==brtx);
     alert(x);
