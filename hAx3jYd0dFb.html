@@ -25,20 +25,77 @@
     <img src="emas.gif" width="100"><hr>
     Struk Menggunakan Kadar Emas<hr></h4>
   </center>
+  <div id="transaksi" hidden></div>
   <table width="100%">
     <tr><td>Kode</td><td>:</td>
     <td><input type="text" id="kode" setfocus></td></tr>
-    <tr><td>Berat(gr)</td><td>:</td>
-    <td><input type="text" id="kode" setfocus></td></tr>
-    <tr><td>Harga/gr</td><td>:</td>
-    <td><input type="text" id="kode" setfocus></td></tr>
+    <tr><td>Berat (gram)</td><td>:</td>
+    <td><input type="number" id="berat" placeholder="0"></td></tr>
+    <tr><td>Harga per gram</td><td>:</td>
+    <td><input type="number" id="harga" placeholder="0"></td></tr>
   </table>
   <p align="center"><button onClick="simpan()" style="font-size:20px; font-weight:bold;">Simpan</button></p>
-  
+  <p><div id="output"></div></p>
   <hr><center>
   <p style="font-size:11px; color:green;">
       Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
   </center><hr>
+  
+  <script>
+  function simpan(){
+     kode = document.getElementById("kode").value;
+     brt = parseFloat(document.getElementById("berat").value);
+     prc = parseFloat(document.getElementById("harga").value);
+     if (kode=="" || brt*prc==0){
+        Swal.fire({
+          title: "Error",
+          text: "Kolom harus diisi!",
+          icon: "error"
+        });
+        return;
+     }
+     amnt = brt * prc;
+     tmp= kode+", "+brt+", "+prc+", "+amnt+"\n";
+     isi=document.getElementById("transaksi").innerHTML;
+     isi += tmp;
+     document.getElementById("transaksi").innerHTML=isi;
+     reset();
+  }
+  function reset(){
+    document.getElementById("kode").value = "";
+    document.getElementById("brt").value = "";
+    document.getElementById("hrg").value = "";
+    prev();
+  }
+  function prev(){
+    const text = document.getElementById("transaksi").innerHTML;
+    const lines = text.split("\n").map(line => line.split(", ").map(item => item.trim()));
+    let output = "<p align='center'><b>Struk</b></p><table width='100%' style='font-family:arial; font-size:12px;'>";
+    output += "<tr style='font-weight:bold;'><td align='center' width='5%'>No.</td><td align='right'>LM</td><td align='right'>Kadar</td><td align='right'>Harga</td><td align='right'>Amount</td></tr>";
+    sumBRT=0; sumRP=0; no=1;
+    lines.forEach((row, i) => {
+      if (`${row}`!==""){
+        output += "<tr><td align='center'>"+no+"</td>";
+        row.forEach((col, j) => {
+           if (`${col}`!==""){
+           if (j==2){
+              output += "<td align='right'>"+parseFloat(`${col}`).toFixed(2)+"</td>";
+           } else {
+              output += "<td align='right'>"+parseInt(`${col}`).toLocaleString('en-US')+"</td>";
+           }
+           if (j==1){ sumBRT+=parseInt(`${col}`); }
+           if (j==3){ sumRP+=parseInt(`${col}`); }
+           }
+        });
+        output += "</tr>";
+        no += 1;
+      }
+    });
+    output += "<tr><td align='center' colspan='2'>Jml</td><td align='right'>"+parseInt(sumBRT).toLocaleString("en-US")+"</td><td></td><td align='right'>"+parseInt(sumRP).toLocaleString("en-US")+"</td></tr>";
+    output += "</table>";
+    document.getElementById("output").innerHTML = output;
+  }
+  </script>
   <script src="user.js"></script>
 </body>
 </html>
