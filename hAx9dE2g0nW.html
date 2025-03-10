@@ -68,7 +68,7 @@
  </head>
  <body onLoad="fetchData()">
    <div class="overlay" id="loading">
-        <div class="spinner"></div>
+   <div class="spinner"></div>
    </div><div id="emas" hidden></div>
    <div id="usr" style="font-size:11px; color:#FFD700;"></div>
    <center>
@@ -110,7 +110,6 @@
      font-size:2em; color:white; font-weight:bold;">Kadar : 0.00</span>
    <div><button onClick="hitung()" style="font-size:20px; font-weight:bold;">
    HITUNG</button></div>
-   <p><div id="key2"></div></p>
    </center>
  
 <script>
@@ -129,8 +128,6 @@ async function fetchData() {
     } catch (error) {
       document.getElementById("emas").innerHTML = "";
     }
-//    encod = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ");
-//    document.getElementById("key2").innerHTML = encod;
     device_id();
 }
  
