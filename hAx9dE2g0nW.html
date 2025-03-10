@@ -6,7 +6,7 @@
   <meta property="og:image" content='https://sukedi.github.io/emas/emas.jpg'>
   <meta name="viewport" content="width=device-width, user-scalable=no">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <title>Hitung Kadar Emas</title>
+  <title>:::Emas:::</title>
   <style>
    body {
     font-family:arial;
@@ -55,8 +55,8 @@
    .spinner {
     width: 50px;
     height: 50px;
-    border: 5px solid white; /* Lingkaran dengan warna putih */
-    border-top: 5px solid transparent; /* Bagian atas transparan untuk efek putaran */
+    border: 5px solid white;
+    border-top: 5px solid transparent;
     border-radius: 50%;
     animation: spin 1s linear infinite;
    }
@@ -69,7 +69,7 @@
  <body onLoad="fetchData()">
    <div class="overlay" id="loading">
         <div class="spinner"></div>
-   </div>
+   </div><div id="emas" hidden></div>
    <div id="usr" style="font-size:11px; color:#FFD700;"></div>
    <center>
    <img src="emas.gif" width="100">
@@ -110,7 +110,6 @@
      font-size:2em; color:white; font-weight:bold;">Kadar : 0.00</span>
    <div><button onClick="hitung()" style="font-size:20px; font-weight:bold;">
    HITUNG</button></div>
-   <p><div id="key"></div></p>
    <p><div id="key2"></div></p>
    </center>
  
@@ -122,13 +121,13 @@ hasil.style.left = "-50px";
 hasil.style.opacity = "0"; });
  
 async function fetchData() {
-    const url = "key.php";        
+    const url = "emas.php";        
     try {
       const response = await fetch(url);
       const text = await response.text()
-      document.getElementById("key").innerHTML = text;
+      document.getElementById("emas").innerHTML = text;
     } catch (error) {
-      document.getElementById("key").innerHTML = "None";
+      document.getElementById("emas").innerHTML = "";
     }
     encod = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ");
     document.getElementById("key2").innerHTML = encod;
