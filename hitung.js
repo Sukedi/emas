@@ -11,15 +11,16 @@ async function hitung(){
         return;
     }
     tunggu();
-    ratio = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ").trim();
+    document.getElementById("key2").innerHTML="__xHd";
+    MY = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ").trim();
     brt0 = document.getElementById("emas").innerHTML;
-    brtx = brt0.replace("amp;","").trim();
-    var warnaDipilih = document.querySelector('input[name="warna"]:checked');
-    NC = warnaDipilih.value;
+    AH = brt0.replace("amp;","").trim();
+    var warna = document.querySelector('input[name="warna"]:checked');
+    NC = warna.value;
     SG = brt1/(brt1-brt2);
     DH = ubah(SG,NC);
-//    hsl = kdrx(DH,NC,ratio,brtx);
-    document.getElementById("hasil").innerHTML= "Kadar : "+kdrx(DH,NC,ratio,brtx).toFixed(2);
+    hsl = kdrx(DH,NC,MY,AH);
+    document.getElementById("hasil").innerHTML= "Kadar : "+hsl.toFixed(2);
     document.getElementById("w1").value="";
     document.getElementById("w2").value="";
     document.getElementById("c0").checked = true;
