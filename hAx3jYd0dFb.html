@@ -16,9 +16,13 @@
     font-family:arial;
     font-size:16px;
   }
+  @media print {
+    .noprint { display:none; }
+  }
   </style>
 </head>
 <body onLoad="device_id()">
+  <div class="noprint">
   <div id="usr" style="font-size:11px; color:#FFD700;"></div>
   <center>
     <h4 style="font-size:14px; color:#FFD700;">
@@ -37,11 +41,13 @@
     *) Bulatkan ribuan, misal 1250000 diketik 1250.</p></td></tr>
   </table>
   <p align="center"><button onClick="simpan()" style="font-size:20px; font-weight:bold;">Simpan</button></p>
+  </div>
   <p><div id="output" style="background-color:white;"></div></p>
+  <div class="noprint">
   <hr><center>
   <p style="font-size:11px; color:green;">
       Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
-  </center><hr>
+  </center><hr></div>
   
   <script>
   function simpan(){
@@ -81,7 +87,7 @@
         row.forEach((col, j) => {
            if (`${col}`!==""){
            if (j==1){
-              output += "<td align='right'>"+parseFloat(`${col}`).toFixed(2)+"</td>";
+              output += "<td align='right'>"+parseFloat(`${col}`).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })+"</td>";
            } else if (j>1) {
               output += "<td align='right'>"+parseInt(`${col}`).toLocaleString('en-US')+"</td>";
            } else {
@@ -97,7 +103,7 @@
     });
     output += "<tr><td colspan='2'>Total</td><td align='right'>"+parseInt(sumBRT).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })+"</td><td></td><td align='right'>"+parseInt(sumRP).toLocaleString("en-US");
     output += "</td></tr></table>";
-    output += "<p align='right'><button>Cetak</button>&nbsp;&nbsp;<button>Kirim</button></p>";
+    output += "<p align='right'><button onclick='window.print()'>Cetak</button>&nbsp;&nbsp;<button onclick='kirim()'>Kirim</button></p>";
     document.getElementById("output").innerHTML = output;
   }
   </script>
