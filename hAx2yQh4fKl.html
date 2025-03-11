@@ -23,87 +23,14 @@
   </style>
 </head>
 <body><!-- onLoad="device_id()"-->
-<button onClick="simpan()">Hai</button>
+<button onClick="simpan()">Hei</button>
   
   <script>
   function simpan(){
      alert("hai");
   }
-    function ttt(){
-     brt1 = parseFloat(document.getElementById("berat1").value);
-     brt2 = parseFloat(document.getElementById("berat2").value);
- //    wrn = parseFloat(document.getElementById("warna").value);
-     wrn=0;
-     prc = parseFloat(document.getElementById("harga").value);
-     if (brt1*brt2*prc==0){
-        Swal.fire({
-          title: "Error",
-          text: "Kolom harus diisi!",
-          icon: "error"
-        });
-        return;
-     }
-     brt  = hitung(brt1,brt2,wrn);
-     amnt = brt * prc;
-     tmp= brt1+", "+brt2+", "+prc+", "+amnt+"\n";
-     isi=document.getElementById("transaksi").innerHTML;
-     isi += tmp;
-     document.getElementById("transaksi").innerHTML=isi;
-     reset();
-  }
-  function reset(){
-    document.getElementById("berat1").value = "";
-    document.getElementById("berat2").value = "";
-    document.getElementById("warna").value = "0";
-    document.getElementById("harga").value = "";
-    prev();
-  }
-  function prev(){
-    const text = document.getElementById("transaksi").innerHTML;
-    const lines = text.split("\n").map(line => line.split(", ").map(item => item.trim()));
-    let output = "<table width='50%'><tr><td align='center'><b>Struk</b></td></tr></table><table width='50%' style='font-family:arial; font-size:14px;'>";
-    output += "<tr><td align='center' width='5%'>No.</td><td>Kode</td><td align='right'>Berat</td><td align='right'>Harga</td><td align='right'>Amount</td></tr>";
-    sumBRT=0; sumRP=0; no=1;
-    lines.forEach((row, i) => {
-      if (`${row}`!==""){
-        output += "<tr><td align='center'>"+no+"</td>";
-        row.forEach((col, j) => {
-           if (`${col}`!==""){
-           if (j<2){
-              output += "<td align='right'>"+parseFloat(`${col}`).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })+"</td>";
-           } else if (j>1) {
-              output += "<td align='right'>"+parseInt(`${col}`).toLocaleString('en-US')+"</td>";
-           } else {
-              output += "<td>"+`${col}`+"</td>";
-           } 
-           if (j==0){ sumBRT+=parseFloat(`${col}`); }
-           if (j==3){ sumRP+=parseFloat(`${col}`); }
-           }
-        });
-        output += "</tr>";
-        no += 1;
-      }
-    });
-    
-    output += "<tr><td>Total</td><td align='right'>"+sumBRT.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })+"</td><td colspan="2"></td><td align='right'>"+parseInt(sumRP).toLocaleString("en-US");
-    output += "</td></tr></table><p><table width='100%'><tr><td><button onclick='anyar()' class='noprint'>Reset</button></td><td align='right'>";
-    output += "<button onclick='window.print()' class='noprint'>Cetak</button>&nbsp;&nbsp;<button onclick='kirim()' class='noprint'>Bagikan</button></td></tr></table></p>";
-    document.getElementById("output").innerHTML = output;
-  }
-  function kirim(){
-    Swal.fire({
-          title: "Error",
-          text: "WhatsApp tidak siap!",
-          icon: "error"
-    });
-  }
-  function anyar(){
-    document.getElementById("output").innerHTML = "";
-    document.getElementById("transaksi").innerHTML = "";
-  }
   </script>
-  <script src="user.js"></script>
-  <script src="hitung.js"></script>
-  <script src="sg.js"></script>
+    
+
 </body>
 </html>
