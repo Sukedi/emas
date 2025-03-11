@@ -71,7 +71,7 @@
     const text = document.getElementById("transaksi").innerHTML;
     const lines = text.split("\n").map(line => line.split(", ").map(item => item.trim()));
     let output = "<p align='center'><b>Struk</b></p><table width='100%' style='font-family:arial; font-size:12px;'>";
-    output += "<tr style='font-weight:bold;'><td align='center' width='5%'>No.</td><td align='right'>LM</td><td align='right'>Kadar</td><td align='right'>Harga</td><td align='right'>Amount</td></tr>";
+    output += "<tr><td align='center' width='5%'>No.</td><td align='right'>Kode</td><td align='right'>Berat</td><td align='right'>Harga</td><td align='right'>Amount</td></tr>";
     sumBRT=0; sumRP=0; no=1;
     lines.forEach((row, i) => {
       if (`${row}`!==""){
@@ -80,7 +80,8 @@
            if (`${col}`!==""){
            if (j==2){
               output += "<td align='right'>"+parseFloat(`${col}`).toFixed(2)+"</td>";
-           } else {
+           } 
+           if (j>2) {
               output += "<td align='right'>"+parseInt(`${col}`).toLocaleString('en-US')+"</td>";
            }
            if (j==1){ sumBRT+=parseInt(`${col}`); }
@@ -91,7 +92,7 @@
         no += 1;
       }
     });
-    output += "<tr><td align='center' colspan='2'>Jml</td><td align='right'>"+parseInt(sumBRT).toLocaleString("en-US")+"</td><td></td><td align='right'>"+parseInt(sumRP).toLocaleString("en-US")+"</td></tr>";
+    output += "<tr><td colspan='2'>Total</td><td align='right'>"+parseInt(sumBRT).toLocaleString("en-US")+"</td><td></td><td align='right'>"+parseInt(sumRP).toLocaleString("en-US")+"</td></tr>";
     output += "</table>";
     document.getElementById("output").innerHTML = output;
   }
