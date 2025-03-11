@@ -56,10 +56,9 @@
   <p style="font-size:11px; color:green;">
       Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
   </center><hr></div>     
-  A
+  
   <script>
   function simpan(){
-     alert("hai");
      brt1 = parseFloat(document.getElementById("berat1").value);
      brt2 = parseFloat(document.getElementById("berat2").value);
      wrn = parseFloat(document.getElementById("warna").value);
@@ -73,7 +72,7 @@
         });
         return;
      }
-     brt  = hitung(brt1,brt2,wrn);
+     brt  = wrn; // hitung(brt1,brt2,wrn);
      amnt = brt * prc;
      tmp= brt1+", "+brt2+", "+prc+", "+amnt+"\n";
      isi=document.getElementById("transaksi").innerHTML;
