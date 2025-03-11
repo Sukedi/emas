@@ -109,7 +109,7 @@
    <center>
    <span class="spn" id="hasil" style="background-color:black; 
      font-size:2em; color:white; font-weight:bold;">Kadar : 0.00</span>
-   <div><button onClick="hitung()" style="font-size:20px; font-weight:bold;">
+   <div><button onClick="calc()" style="font-size:20px; font-weight:bold;">
    HITUNG</button></div><br>
   <hr>
   <p style="font-size:11px; color:green;">
@@ -153,6 +153,12 @@ document.getElementById("w2").addEventListener("input", function () {
     }
 });
 
+function calc(){
+let brtx = document.getElementById("w1").value;
+let brty = document.getElementById("w2").value;
+var warna = document.querySelector('input[name="warna"]:checked');
+ww = warna.value;
+hitung(brtx,brty,ww);}
 function decript(t,r){let n=String(t);while(n.length>1){let e=0;for(let t=0;t<n.length;t++){e+=parseInt(n.charAt(t),10)}n=String(e)}let i="";for(let e=0;e<r.length;e++){let t;if(parseInt(n,10)&1){t=r.charCodeAt(e)-47-parseInt(n,10);if(t<32){t+=223}}else{t=r.charCodeAt(e)+47+parseInt(n,10);if(t>254){t-=223}}i+=String.fromCharCode(t)}return i}                                                                 
 function tunggu() {
      document.getElementById("loading").style.display = "flex";
