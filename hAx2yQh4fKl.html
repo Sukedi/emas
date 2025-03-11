@@ -5,7 +5,7 @@
   <meta property="og:image" content='https://sukedi.github.io/emas/emas.jpg'>
   <meta name="viewport" content="width=device-width, user-scalable=no">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <title>:::Emas:::</title>
+  <title>Struk</title>
   <style>
   body {
     background: linear-gradient(to bottom, royalblue, skyblue, lightblue);
@@ -13,15 +13,119 @@
     font-family: arial;
     font-size: 14px;
   }
+  input, table, tr, th, td {
+    font-family:arial;
+    font-size:16px;
+  }
+  @media print {
+    .noprint { display:none; }
+  }
   </style>
 </head>
-<body onLoad="device_id()">
+  <div class="noprint">
   <div id="usr" style="font-size:11px; color:#FFD700;"></div>
   <center>
     <h4 style="font-size:14px; color:#FFD700;">
     <img src="emas.gif" width="100"><hr>
     Struk Menggunakan Berat Basah<hr></h4>
   </center>
+  <div id="transaksi" hidden></div>
+  <table width="100%">
+    <tr><td>Berat kering</td><td>:</td>
+    <td><input type="number" id="berat1" placeholder="0" setfocus></td></tr>
+    <tr><td>Berat basah</td><td>:</td>
+    <td><input type="number" id="berat2" placeholder="0"></td></tr>
+    <tr><td>Warna</td><td>:</td>
+    <td><select id="warna">
+      <option value="0" selected>Abaikan</option>
+      <option value="1">Emas</option>
+      <option value="2">Agak pudar</option>
+      <option value="3">Pudar</option>
+    </select></td></tr>
+    <tr><td valign="top">Harga / gram</td><td valign="top">:</td>
+    <td><input type="number" id="harga" placeholder="0"></td></tr>
+  </table>
+  <p align="center"><button onClick="simpan()" style="font-size:20px; font-weight:bold;">Simpan</button></p>
+  <p style="font-size:11px; margin-bottom:2px;">
+  &nbsp;*) Harga dibulatkan ribuan. Misal 1500000 diketik 1500.</p>
+  </div>
+  <p><div id="output" style="background-color:white;max-width:500px;"></div></p>
+  <div class="noprint">
+  <hr><center>
+  <p style="font-size:11px; color:green;">
+      Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
+  </center><hr></div>
+  
+    <script>
+  function simpan(){
+     brt1 = parseFloat(document.getElementById("berat1").value);
+     brt2 = parseFloat(document.getElementById("berat2").value);
+     prc = parseFloat(document.getElementById("harga").value);
+     if (brt1*brt2*prc==0){
+        Swal.fire({
+          title: "Error",
+          text: "Kolom harus diisi!",
+          icon: "error"
+        });
+        return;
+     }
+     amnt = brt * prc;
+     tmp= kode+", "+brt+", "+prc+", "+amnt+"\n";
+     isi=document.getElementById("transaksi").innerHTML;
+     isi += tmp;
+     document.getElementById("transaksi").innerHTML=isi;
+     reset();
+  }
+  function reset(){
+    document.getElementById("kode").value = "";
+    document.getElementById("berat").value = "";
+    document.getElementById("harga").value = "";
+    prev();
+  }
+  function prev(){
+    const text = document.getElementById("transaksi").innerHTML;
+    const lines = text.split("\n").map(line => line.split(", ").map(item => item.trim()));
+    let output = "<table width='50%'><tr><td align='center'><b>Struk</b></td></tr></table><table width='50%' style='font-family:arial; font-size:14px;'>";
+    output += "<tr><td align='center' width='5%'>No.</td><td>Kode</td><td align='right'>Berat</td><td align='right'>Harga</td><td align='right'>Amount</td></tr>";
+    sumBRT=0; sumRP=0; no=1;
+    lines.forEach((row, i) => {
+      if (`${row}`!==""){
+        output += "<tr><td align='center'>"+no+"</td>";
+        row.forEach((col, j) => {
+           if (`${col}`!==""){
+           if (j==1){
+              output += "<td align='right'>"+parseFloat(`${col}`).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })+"</td>";
+           } else if (j>1) {
+              output += "<td align='right'>"+parseInt(`${col}`).toLocaleString('en-US')+"</td>";
+           } else {
+              output += "<td>"+`${col}`+"</td>";
+           } 
+           if (j==1){ sumBRT+=parseFloat(`${col}`); }
+           if (j==3){ sumRP+=parseFloat(`${col}`); }
+           }
+        });
+        output += "</tr>";
+        no += 1;
+      }
+    });
+    
+    output += "<tr><td colspan='2'>Total</td><td align='right'>"+sumBRT.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })+"</td><td></td><td align='right'>"+parseInt(sumRP).toLocaleString("en-US");
+    output += "</td></tr></table><p><table width='100%'><tr><td><button onclick='anyar()' class='noprint'>Reset</button></td><td align='right'>";
+    output += "<button onclick='window.print()' class='noprint'>Cetak</button>&nbsp;&nbsp;<button onclick='kirim()' class='noprint'>Bagikan</button></td></tr></table></p>";
+    document.getElementById("output").innerHTML = output;
+  }
+  function kirim(){
+    Swal.fire({
+          title: "Error",
+          text: "WhatsApp tidak siap!",
+          icon: "error"
+    });
+  }
+  function anyar(){
+    document.getElementById("output").innerHTML = "";
+    document.getElementById("transaksi").innerHTML = "";
+  }
+  </script>
   <script src="user.js"></script>
 </body>
 </html>
