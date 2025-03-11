@@ -37,7 +37,7 @@
     *) Bulatkan ribuan, misal 1250000 diketik 1250.</p></td></tr>
   </table>
   <p align="center"><button onClick="simpan()" style="font-size:20px; font-weight:bold;">Simpan</button></p>
-  <p><div id="output"></div></p>
+  <p><div id="output" style="background-color:white;"></div></p>
   <hr><center>
   <p style="font-size:11px; color:green;">
       Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
@@ -95,8 +95,8 @@
         no += 1;
       }
     });
-    output += "<tr><td colspan='2'>Total</td><td align='right'>"+parseInt(sumBRT).toLocaleString("en-US").toFixed(2)+"</td><td></td><td align='right'>"+parseInt(sumRP).toLocaleString("en-US")+"</td></tr>";
-    output += "</table><br><button>Cetak</button>&nbsp;&nbsp;<button>Kirim</button>";
+    output += "<tr><td colspan='2'>Total</td><td align='right'>"+parseInt(sumBRT).toLocaleString("en-US").toFixed(2)+"</td><td></td><td align='right'>"+parseInt(sumRP).toLocaleString("en-US");
+    output += "</td></tr></table>";
     document.getElementById("output").innerHTML = output;
   }
   </script>
