@@ -25,7 +25,7 @@
     <img src="emas.gif" width="100"><hr>
     Struk Menggunakan Kode Barang<hr></h4>
   </center>
-  <div id="transaksi" hidden></div>
+  <div id="transaksi"></div>
   <table width="100%">
     <tr><td>Kode</td><td>:</td>
     <td><input type="text" id="kode" setfocus></td></tr>
@@ -97,6 +97,7 @@
     });
     output += "<tr><td colspan='2'>Total</td><td align='right'>"+parseInt(sumBRT).toLocaleString("en-US").toFixed(2)+"</td><td></td><td align='right'>"+parseInt(sumRP).toLocaleString("en-US");
     output += "</td></tr></table>";
+    output += "<br><button>Cetak</button>&nbsp;&nbsp;<button>Kirim</button>";
     document.getElementById("output").innerHTML = output;
   }
   </script>
