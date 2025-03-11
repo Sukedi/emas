@@ -93,11 +93,11 @@
         });
         output += "</tr>";
         no += 1;
-      } // .toFixed(2)
+      }
     });
-    output += "<tr><td colspan='2'>Total</td><td align='right'>"+parseInt(sumBRT).toLocaleString("en-US")+"</td><td></td><td align='right'>"+parseInt(sumRP).toLocaleString("en-US");
+    output += "<tr><td colspan='2'>Total</td><td align='right'>"+parseInt(sumBRT).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })+"</td><td></td><td align='right'>"+parseInt(sumRP).toLocaleString("en-US");
     output += "</td></tr></table>";
-    output += "<br><button>Cetak</button>&nbsp;&nbsp;<button>Kirim</button>";
+    output += "<p align='right'><button>Cetak</button>&nbsp;&nbsp;<button>Kirim</button></p>";
     document.getElementById("output").innerHTML = output;
   }
   </script>
