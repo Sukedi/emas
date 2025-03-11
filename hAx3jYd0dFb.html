@@ -19,9 +19,6 @@
   @media print {
     .noprint { display:none; }
   }
-  input[type="number"] {
-    width: 150px;
-  }
   </style>
 </head>
 <body onLoad="device_id()">
@@ -35,7 +32,7 @@
   <div id="transaksi" hidden></div>
   <table width="100%">
     <tr><td>Kode</td><td>:</td>
-    <td><input type="text" id="kode" size="10" setfocus></td></tr>
+    <td><input type="text" id="kode" setfocus></td></tr>
     <tr><td>Berat (gram)</td><td>:</td>
     <td><input type="number" id="berat" placeholder="0"></td></tr>
     <tr><td valign="top">Harga / gram</td><td valign="top">:</td>
