@@ -42,7 +42,7 @@
   </table>
   <p align="center"><button onClick="simpan()" style="font-size:20px; font-weight:bold;">Simpan</button></p>
   </div>
-  <p><div id="output" style="background-color:white;"></div></p>
+  <p><div id="output" style="background-color:white;max-width:500px;"></div></p>
   <div class="noprint">
   <hr><center>
   <p style="font-size:11px; color:green;">
@@ -78,7 +78,7 @@
   function prev(){
     const text = document.getElementById("transaksi").innerHTML;
     const lines = text.split("\n").map(line => line.split(", ").map(item => item.trim()));
-    let output = "<table width='100%'><tr><td align='center'><b>Struk</b></td></tr></table><table width='50%' style='font-family:arial; font-size:14px;'>";
+    let output = "<table width='50%'><tr><td align='center'><b>Struk</b></td></tr></table><table width='50%' style='font-family:arial; font-size:14px;'>";
     output += "<tr><td align='center' width='5%'>No.</td><td>Kode</td><td align='right'>Berat</td><td align='right'>Harga</td><td align='right'>Amount</td></tr>";
     sumBRT=0; sumRP=0; no=1;
     lines.forEach((row, i) => {
@@ -109,7 +109,7 @@
   function kirim(){
     Swal.fire({
           title: "Error",
-          text: "WA tidak siap!",
+          text: "WhatsApp tidak siap!",
           icon: "error"
     });
   }
