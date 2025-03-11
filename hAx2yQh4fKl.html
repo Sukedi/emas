@@ -30,7 +30,7 @@
     <img src="emas.gif" width="100"><hr>
     Struk Menggunakan Berat Basah<hr></h4>
   </center>
-  <div id="transaksi"></div>
+  <div id="transaksi" hidden></div>
   <table width="100%">
     <tr><td>Berat kering</td><td>:</td>
     <td><input type="number" id="berat1" placeholder="0" setfocus></td></tr>
@@ -60,6 +60,8 @@
   <script>
   function simpan(){
      alert("hai");
+  }
+    function ttt(){
      brt1 = parseFloat(document.getElementById("berat1").value);
      brt2 = parseFloat(document.getElementById("berat2").value);
  //    wrn = parseFloat(document.getElementById("warna").value);
