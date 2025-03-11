@@ -71,19 +71,20 @@
     const text = document.getElementById("transaksi").innerHTML;
     const lines = text.split("\n").map(line => line.split(", ").map(item => item.trim()));
     let output = "<p align='center'><b>Struk</b></p><table width='100%' style='font-family:arial; font-size:12px;'>";
-    output += "<tr><td align='center' width='5%'>No.</td><td align='right'>Kode</td><td align='right'>Berat</td><td align='right'>Harga</td><td align='right'>Amount</td></tr>";
+    output += "<tr><td align='center' width='5%'>No.</td><td>Kode</td><td align='right'>Berat</td><td align='right'>Harga</td><td align='right'>Amount</td></tr>";
     sumBRT=0; sumRP=0; no=1;
     lines.forEach((row, i) => {
       if (`${row}`!==""){
         output += "<tr><td align='center'>"+no+"</td>";
         row.forEach((col, j) => {
            if (`${col}`!==""){
-           if (j==2){
+           if (j==1){
               output += "<td align='right'>"+parseFloat(`${col}`).toFixed(2)+"</td>";
-           } 
-           if (j>2) {
+           } else if (j>1) {
               output += "<td align='right'>"+parseInt(`${col}`).toLocaleString('en-US')+"</td>";
-           }
+           } else {
+              output += "<td>"+`${col}`+"</td>";
+           } 
            if (j==1){ sumBRT+=parseInt(`${col}`); }
            if (j==3){ sumRP+=parseInt(`${col}`); }
            }
