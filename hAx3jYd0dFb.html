@@ -78,7 +78,7 @@
   function prev(){
     const text = document.getElementById("transaksi").innerHTML;
     const lines = text.split("\n").map(line => line.split(", ").map(item => item.trim()));
-    let output = "<p align='center' style='font-size:12px;'><b>Struk</b></p><table width='100%' style='font-family:arial; font-size:14px;'>";
+    let output = "<p align='center'><b>Struk</b></p><table width='100%' style='font-family:arial; font-size:14px;'>";
     output += "<tr><td align='center' width='5%'>No.</td><td>Kode</td><td align='right'>Berat</td><td align='right'>Harga</td><td align='right'>Amount</td></tr>";
     sumBRT=0; sumRP=0; no=1;
     lines.forEach((row, i) => {
@@ -103,7 +103,7 @@
     });
     output += "<tr><td colspan='2'>Total</td><td align='right'>"+sumBRT.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })+"</td><td></td><td align='right'>"+parseInt(sumRP).toLocaleString("en-US");
     output += "</td></tr></table>";
-    output += "<p align='right'><button onclick='window.print()'>Cetak</button>&nbsp;&nbsp;<button onclick='kirim()'>Kirim</button></p>";
+    output += "<p align='right'><button onclick='window.print()' class='noprint'>Cetak</button>&nbsp;&nbsp;<button onclick='kirim()' class='noprint'>Kirim</button></p>";
     document.getElementById("output").innerHTML = output;
   }
   </script>
