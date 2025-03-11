@@ -23,39 +23,7 @@
   </style>
 </head>
 <body onLoad="device_id()">
-  <div class="noprint">
-  <div id="usr" style="font-size:11px; color:#FFD700;"></div>
-  <center>
-    <h4 style="font-size:14px; color:#FFD700;">
-    <img src="emas.gif" width="100"><hr>
-    Struk Menggunakan Berat Basah<hr></h4>
-  </center>
-  <div id="transaksi" hidden></div>
-  <table width="100%">
-    <tr><td>Berat kering</td><td>:</td>
-    <td><input type="number" id="berat1" placeholder="0" setfocus></td></tr>
-    <tr><td>Berat basah</td><td>:</td>
-    <td><input type="number" id="berat2" placeholder="0"></td></tr>
-    <tr><td>Warna</td><td>:</td>
-    <td><select id="warna">
-      <option value="0" selected>Abaikan</option>
-      <option value="1">Emas</option>
-      <option value="2">Emas agak pudar</option>
-      <option value="3">Emas pudar</option>
-    </select></td></tr>
-    <tr><td valign="top">Harga / gram</td><td valign="top">:</td>
-    <td><input type="number" id="harga" placeholder="0"></td></tr>
-  </table>
-  <p align="center"><button onClick="simpan()" style="font-size:20px; font-weight:bold;">Simpan</button></p>
-  <p style="font-size:11px; margin-bottom:2px;">
-  &nbsp;*) Harga dibulatkan ribuan. Misal 1500000 diketik 1500.</p>
-  </div><button onClick="simpan()">Hai</button>
-  <p><div id="output" style="background-color:white;max-width:500px;"></div></p>
-  <div class="noprint">
-  <hr><center>
-  <p style="font-size:11px; color:green;">
-      Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
-  </center><hr></div>
+<button onClick="simpan()">Hai</button>
   
   <script>
   function simpan(){
