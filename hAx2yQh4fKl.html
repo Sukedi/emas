@@ -29,7 +29,7 @@
     <img src="emas.gif" width="100"><hr>
     Struk Menggunakan Berat Basah<hr></h4>
   </center>
-  <div id="transaksi" hidden></div>
+  <div id="transaksi"></div>
   <table width="100%">
     <tr><td>Berat kering</td><td>:</td>
     <td><input type="number" id="berat1" placeholder="0" setfocus></td></tr>
@@ -60,7 +60,8 @@
   function simpan(){
      brt1 = parseFloat(document.getElementById("berat1").value);
      brt2 = parseFloat(document.getElementById("berat2").value);
-     wrn = parseFloat(document.getElementById("warna").value);
+ //    wrn = parseFloat(document.getElementById("warna").value);
+     wrn=0;
      prc = parseFloat(document.getElementById("harga").value);
      if (brt1*brt2*prc==0){
         Swal.fire({
