@@ -5,7 +5,8 @@ const screenWidth = window.screen.width;
 const screenHeight = window.screen.height;
 const fingerprint = `${userAgent};${platform};${screenWidth}x${screenHeight}`;
 let hash = await hashSHA256(fingerprint);
-cekExist(hash);
+ax = cekExist(hash);
+return ax;
 }
 async function hashSHA256(text) {
 const encoder = new TextEncoder();
@@ -41,4 +42,5 @@ if (isExist) {
     });
 }
 document.getElementById("usr").innerHTML= usrx;
+return isExist;
 }
