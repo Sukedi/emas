@@ -56,15 +56,13 @@
   <p style="font-size:11px; color:green;">
       Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
   </center><hr></div>     
-Hhh
+ppp
   <script>
   function simpan(){
      brt1 = parseFloat(document.getElementById("berat1").value);
      brt2 = parseFloat(document.getElementById("berat2").value);
      NC = parseFloat(document.getElementById("warna").value);
-     
      prc = parseFloat(document.getElementById("harga").value);
-//    brt1=10; brt2=20; prc=25;
      if (brt1*brt2==0 || brt1<=brt2 || prc==0){
         Swal.fire({
           title: "Error",
@@ -79,8 +77,8 @@ Hhh
 //    AH = brt0.replace("amp;","").trim();
     SG = brt1/(brt1-brt2);
     DH = ubah(SG,NC);
-//    brt = kdrx(DH,NC,MY,AH);
-    brt=2;
+    brt = kdrx(DH,NC,MY,AH);
+//    brt=2;
     
      amnt = brt * prc;
      tmp= brt1+", "+brt2+", "+prc+", "+amnt+"\n";
