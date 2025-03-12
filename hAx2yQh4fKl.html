@@ -56,23 +56,31 @@
   <p style="font-size:11px; color:green;">
       Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
   </center><hr></div>     
-  
+  a
   <script>
   function simpan(){
      brt1 = parseFloat(document.getElementById("berat1").value);
      brt2 = parseFloat(document.getElementById("berat2").value);
      //wrn = parseFloat(document.getElementById("warna").value);
-     wrn="1";
+     wrn=0;
      prc = parseFloat(document.getElementById("harga").value);
-     if (prc==0){
+     if (brt1*brt2==0 || brt1<=brt2 || prc==0){
         Swal.fire({
           title: "Error",
-          text: "Harga tak boleh nol!",
+          text: "Cek entry data!",
           icon: "error"
         });
         return;
      }
-     brt  = hitung(brt1,brt2,wrn);
+//     brt  = hitung(w1,w2,wrn);
+    
+    MY = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ").trim();
+    AH = "$_xT8wvO1&nM5-Hwa@#0";
+//    AH = brt0.replace("amp;","").trim();
+    SG = brt1/(brt1-brt2);
+    DH = ubah(SG,NC);
+    brt = kdrx(DH,NC,MY,AH);
+    
      amnt = brt * prc;
      tmp= brt1+", "+brt2+", "+prc+", "+amnt+"\n";
      isi=document.getElementById("transaksi").innerHTML;
@@ -133,6 +141,19 @@
     document.getElementById("output").innerHTML = "";
     document.getElementById("transaksi").innerHTML = "";
   }
+  function decript(t,r){let n=String(t);while(n.length>1){let e=0;for(let t=0;t<n.length;t++){e+=parseInt(n.charAt(t),10)}n=String(e)}let i="";for(let e=0;e<r.length;e++){let t;if(parseInt(n,10)&1){t=r.charCodeAt(e)-47-parseInt(n,10);if(t<32){t+=223}}else{t=r.charCodeAt(e)+47+parseInt(n,10);if(t>254){t-=223}}i+=String.fromCharCode(t)}return i}                                                                 
+  function ubah(sg,warna) {
+   if (warna==3){
+      return sg.toFixed(1);
+   } else {
+      let bulat = sg.toFixed(2);
+      let dpn = bulat.slice(0, -1).toString();
+      let blk = bulat.slice(-1);
+      if (blk<5){ blk="0"; } 
+      else { blk="5"; }
+      return dpn+blk;
+   }
+   }
   </script>
   <script src="user.js"></script>
   <script src="hitung.js"></script>
