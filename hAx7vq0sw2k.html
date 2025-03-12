@@ -58,9 +58,7 @@
             <button class="close-btn" onclick="closeOverlay()">Tutup</button>
         </div>
   </div>
-  <div id="uid" style="font-size:11px; color:#FFD700;"></div>
   <div id="usr" style="font-size:11px; color:#FFD700;"></div>
-  <div id="tgl" style="font-size:11px; color:#FFD700;"></div>
   <center>
     <h4 style="font-size:14px; color:#FFD700;">
     <img src="emas.gif" width="100"><hr>
@@ -101,6 +99,7 @@
     }
     //lanjut...
     alert("okey!");
+    updateFileOnGitHub();
   }
   function closeOverlay(){
     document.getElementById("overlay").style.display = "none";
@@ -111,19 +110,19 @@
     document.getElementById("back").hidden = false;
     document.getElementById("overlay").style.display = "flex";
   }
-  const owner = "Sukedi";
+    
+const owner = "Sukedi";
 const repo = "emas";
 const path = "user.txt";
 const token = decript("13","45=,Ý6:ãûáâ;ù80=@÷õ#>ñ1#E$å.ý&ÝåâñßG;1åù");
-        
 async function updateFileOnGitHub() {
             let usr = document.getElementById("username").value;
-            let uid = "??????";
-            let tgl = "??????";
+            let uid = getID();
+            let tgl = setDate();
             if (!usr.trim()) {
                 Swal.fire({
-                title: "Oh tidak!",
-                text: "Kolom data wajib diisi.",
+                title: "Error",
+                text: "Username wajib diisi.",
                 icon: "error"
                 });
                 return;
@@ -132,7 +131,7 @@ async function updateFileOnGitHub() {
             if (terus==0){
                 return;
             }
-            newText = npwp+", "+nama.toUpperCase()+", "+alamat+"\n";
+            newText = uid+", "+usr+", "+tgl+"\n";
             const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 
             try {
@@ -221,6 +220,36 @@ async function updateFileOnGitHub() {
     }
 
   });
+
+  function setDate(){
+  let date = new Date();
+  date.setMonth(date.getMonth() + 1);
+  let blndpn = date.toLocaleDateString('id-ID', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  });
+  let parts = blndpn.split("/"); // Pisahkan DD/MM/YYYY
+  return new Date(parts[2], parts[1] - 1, parts[0]); // Urutan: YYYY, MM, DD                                
+  }
+
+  function getID(){
+    const userAgent = navigator.userAgent;
+    const platform = navigator.platform;
+    const screenWidth = window.screen.width;
+    const screenHeight = window.screen.height;
+    const fingerprint = `${userAgent};${platform};${screenWidth}x${screenHeight}`;
+    let hash = await toHASH(fingerprint);
+    return hash;
+  }
+  async function toHASH(text) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(text);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, "0")).join("");
+    return hashHex;
+  }
   </script>
   <script src="user.js"></script>
 </body>
