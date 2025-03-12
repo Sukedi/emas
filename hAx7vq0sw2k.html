@@ -34,7 +34,7 @@
   <i>handset</i> atau <i>handphone</i> lain maka anda 
   akan dianggap sebagai <i>user</i> yang berbeda.</p>
   <div style="font-size:12px; color:blue; border:1px solid black; 
-    text-align:center; padding:10px;"><i>Aturan entry: kombinasi A-Z, a-z, 0-9, spasi, titik, 
+    text-align:center; padding:10px;"><i>Aturan entry nama anda:<br>Kombinasi A-Z, a-z, 0-9, spasi, titik, 
   koma, garis bawah dan minus.</i></div>
   <hr><center>
     <p style="font-size:11px; color:green;">
@@ -44,9 +44,7 @@
   <script>
   function simpan(){
     alert("hai");
-  }
-  function ttt(){
-    usr=document.getElementById("usr").Value;
+usr=document.getElementById("usr").innerHTML;
     if (usr.substring(0,12)!=="Username tak"){
        Swal.fire({
        title: "Error",
@@ -55,7 +53,9 @@
        });
        return;
     }
-    const username = document.getElementById("username").Value;
+  }
+  function ttt(){
+        const username = document.getElementById("username").Value;
     const regex = /^[A-Za-z0-9 ,._-]+$/;
     if (!regex.test(username)) {
        Swal.fire({
