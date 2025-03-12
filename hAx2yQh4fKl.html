@@ -56,10 +56,38 @@
   <p style="font-size:11px; color:green;">
       Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
   </center><hr></div>     
-  aaa
+  bbb
   <script>
   function simpan(){
 alert("hai");
+     brt1 = parseFloat(document.getElementById("berat1").value);
+     brt2 = parseFloat(document.getElementById("berat2").value);
+     //wrn = parseFloat(document.getElementById("warna").value);
+     NC=0;
+     prc = parseFloat(document.getElementById("harga").value);
+     if (brt1*brt2==0 || brt1<=brt2 || prc==0){
+        Swal.fire({
+          title: "Error",
+          text: "Cek entry data!",
+          icon: "error"
+        });
+        return;
+     }
+    
+    MY = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ").trim();
+    AH = "$_xT8wvO1&nM5-Hwa@#0";
+//    AH = brt0.replace("amp;","").trim();
+    SG = brt1/(brt1-brt2);
+    DH = ubah(SG,NC);
+//    brt = kdrx(DH,NC,MY,AH);
+    brt=2;
+    
+     amnt = brt * prc;
+     tmp= brt1+", "+brt2+", "+prc+", "+amnt+"\n";
+     isi=document.getElementById("transaksi").innerHTML;
+     isi += tmp;
+     document.getElementById("transaksi").innerHTML=isi;
+//     reset();
   }
     
   function reset(){
