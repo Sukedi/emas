@@ -23,7 +23,7 @@
     <img src="emas.gif" width="100"><hr>
     Pendaftaran<hr></h4>
   </center>
-  Nama Anda : <input type="text" id="nama" maxlength="12" autofocus>
+  Nama Anda : <input type="text" id="username" maxlength="12" autofocus>
   <p align="center"><button onClick="simpan()" style="font-size:20px; font-weight:bold;">Simpan</button></p>
   <p>Nama anda akan disimpan sebagai pengguna 
   program-program yang tersaji dalam website ini. Nama 
@@ -37,6 +37,17 @@
     <p style="font-size:11px; color:green;">
       Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
   </center><hr>
+
+  <script>
+  document.getElementById("username").addEventListener("input", function () {
+    const regex = /^[A-Za-z0-9 ,._-]+$/;
+    if (!regex.test(this.value)) {
+        this.style.border = "2px solid red";
+    } else {
+        this.style.border = "2px solid green";
+    }
+  });
+  </script>
   <script src="user.js"></script>
 </body>
 </html>
