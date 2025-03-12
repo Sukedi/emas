@@ -62,12 +62,12 @@
      brt1 = parseFloat(document.getElementById("berat1").value);
      brt2 = parseFloat(document.getElementById("berat2").value);
      //wrn = parseFloat(document.getElementById("warna").value);
-     wrn=1;
+     wrn="1";
      prc = parseFloat(document.getElementById("harga").value);
-     if (brt1*brt2*prc==0){
+     if (prc==0){
         Swal.fire({
           title: "Error",
-          text: "Kolom harus diisi!",
+          text: "Harga tak boleh nol!",
           icon: "error"
         });
         return;
