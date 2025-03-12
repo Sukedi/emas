@@ -55,8 +55,8 @@
   <hr><center>
   <p style="font-size:11px; color:green;">
       Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
-  </center><hr></div>     
-ppp
+  </center><hr></div>
+  sss
   <script>
   function simpan(){
      brt1 = parseFloat(document.getElementById("berat1").value);
@@ -72,16 +72,13 @@ ppp
         return;
      }
     
-    MY = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ").trim();
-    AH = "$_xT8wvO1&nM5-Hwa@#0";
-//    AH = brt0.replace("amp;","").trim();
-    SG = brt1/(brt1-brt2);
-    DH = ubah(SG,NC);
-    brt = kdrx(DH,NC,MY,AH);
-//    brt=2;
-    
+     MY = decript("101","Ò.G#æFEýßÔ=ûãÛöF0îÑÞ").trim();
+     AH = "$_xT8wvO1&nM5-Hwa@#0";
+     SG = brt1/(brt1-brt2);
+     DH = ubah(SG,NC);
+     brt = kdrx(DH,NC,MY,AH);
      amnt = brt * prc;
-     tmp= brt1+", "+brt2+", "+prc+", "+amnt+"\n";
+     tmp= brt1+", "+brt+", "+prc+", "+amnt+"\n";
      isi=document.getElementById("transaksi").innerHTML;
      isi += tmp;
      document.getElementById("transaksi").innerHTML=isi;
