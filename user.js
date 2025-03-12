@@ -1,11 +1,11 @@
-async function device_id(){
+async function device_id(nn){
 const userAgent = navigator.userAgent;
 const platform = navigator.platform;
 const screenWidth = window.screen.width;
 const screenHeight = window.screen.height;
 const fingerprint = `${userAgent};${platform};${screenWidth}x${screenHeight}`;
 let hash = await hashSHA256(fingerprint);
-cekExist(hash);
+cekExist(hash,nn);
 }
 async function hashSHA256(text) {
 const encoder = new TextEncoder();
@@ -15,7 +15,7 @@ const hashArray = Array.from(new Uint8Array(hashBuffer));
 const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, "0")).join("");
 return hashHex;
 }
-async function cekExist(newNumber) {
+async function cekExist(newNumber,nx) {
 const dataFile = "user.txt";
 const response = await fetch(dataFile);
 if (!response.ok) {
@@ -41,4 +41,5 @@ if (isExist) {
     });
 }
 document.getElementById("usr").innerHTML= usrx;
+if (nx==1){ shwPesan() }
 }
