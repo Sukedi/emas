@@ -56,13 +56,20 @@
   <p style="font-size:11px; color:green;">
       Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
   </center><hr></div>     
-  yyy
+  aaa
   <script>
   function simpan(){
 alert("hai");
   }
     
-  
+  function reset(){
+    document.getElementById("berat1").value = "";
+    document.getElementById("berat2").value = "";
+    document.getElementById("warna").value = "0";
+    document.getElementById("harga").value = "";
+    prev();
+  }
+    
   function kirim(){
     Swal.fire({
           title: "Error",
