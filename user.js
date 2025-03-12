@@ -39,7 +39,7 @@ if (isExist) {
         }
     });
     });
+    if (nx==1){ shwPesan() }
 }
 document.getElementById("usr").innerHTML= usrx;
-if (nx==1){ shwPesan() }
 }
