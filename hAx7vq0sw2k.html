@@ -33,22 +33,14 @@
   program-program di website ini menggunakan 
   <i>handset</i> atau <i>handphone</i> lain maka anda 
   akan dianggap sebagai <i>user</i> yang berbeda.</p>
-  <p>Aturan entry: kombinasi A-Z, a-z, 0-9, spasi, titik, 
-  koma, garis bawah dan minus.</p>
+  <div style="font-size:12px; color:blue:"><i>Aturan entry: kombinasi A-Z, a-z, 0-9, spasi, titik, 
+  koma, garis bawah dan minus.</i></div>
   <hr><center>
     <p style="font-size:11px; color:green;">
       Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
   </center><hr>
 
   <script>
-  document.getElementById("username").addEventListener("input", function () {
-    const regex = /^[A-Za-z0-9 ,._-]+$/;
-    if (!regex.test(this.value)) {
-        this.style.border = "2px solid red";
-    } else {
-        this.style.border = "2px solid green";
-    }
-  });
   function simpan(){
     usr=document.getElementById("usr").Value;
     if (usr.substring(0,12)!=="Username tak"){
