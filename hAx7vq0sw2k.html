@@ -23,7 +23,7 @@
     <img src="emas.gif" width="100"><hr>
     Pendaftaran<hr></h4>
   </center>
-  Nama Anda : <input type="text" id="username" maxlength="12" autofocus>
+  Nama Anda : <input type="text" id="username" maxlength="15" autofocus>
   <p align="center"><button onClick="simpan()" style="font-size:20px; font-weight:bold;">Simpan</button></p>
   <p>Nama anda akan disimpan sebagai pengguna 
   program-program yang tersaji dalam website ini. Nama 
@@ -33,6 +33,8 @@
   program-program di website ini menggunakan 
   <i>handset</i> atau <i>handphone</i> lain maka anda 
   akan dianggap sebagai <i>user</i> yang berbeda.</p>
+  <p>Aturan entry: kombinasi A-Z, a-z, 0-9, spasi, titik, 
+  koma, garis bawah dan minus.</p>
   <hr><center>
     <p style="font-size:11px; color:green;">
       Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
@@ -47,6 +49,29 @@
         this.style.border = "2px solid green";
     }
   });
+  function simpan(){
+    usr=document.getElementById("usr").Value;
+    if (usr.substring(0,12)!=="Username tak"){
+       Swal.fire({
+       title: "Error",
+       text: "Username sudah terdaftar!",
+       icon: "error"
+       });
+       return;
+    }
+    const username = document.getElementById("username").Value;
+    const regex = /^[A-Za-z0-9 ,._-]+$/;
+    if (!regex.test(username)) {
+       Swal.fire({
+       title: "Error",
+       text: "Salah aturan entry!",
+       icon: "error"
+       });
+       return;
+    }
+    //lanjut...
+    alert("okey!");
+  }
   </script>
   <script src="user.js"></script>
 </body>
