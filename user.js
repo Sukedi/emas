@@ -34,12 +34,20 @@ if (isExist) {
     const lines = textData.split("\n").map(line => line.split(", ").map(item => item.trim()));
     lines.forEach((row, i) => {
     row.forEach((col, j) => {
-        if (j==1){
+        if (j==0){
+            uidx = `[${col}]`;
+        } else if (j==1){
             usrx = `[${col}]`;
+        } else {
+            tglx = `[${col}]`;
         }
     });
     });
-    if (nx==1){ shwPesan() }
+    if (nx==1){ 
+        document.getElementById("uid").innerHTML= uidx;
+        document.getElementById("tgl").innerHTML= tglx;
+        shwPesan();
+    }
 }
 document.getElementById("usr").innerHTML= usrx;
 }
