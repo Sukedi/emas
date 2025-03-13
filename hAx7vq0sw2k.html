@@ -111,9 +111,36 @@ async function simpan(){
 //    updateFileOnGitHub();
 }
 
-function cekExist(para){
-   return 1;
+async function cekExist(newNumber) {
+    const dataFile = "user.txt";
+    const response = await fetch(dataFile);
+    
+    if (!response.ok) {
+        Swal.fire({
+        title: "Error",
+        text: "Gagal membaca file data!",
+        icon: "error"
+        });
+        return 0;
+    }
+
+    const textData = await response.text();
+    const rows = textData.split("\n").map(row => row.trim()).filter(row => row !== "");
+
+    // Cek apakah nomor sudah ada dalam data
+    const isExist = rows.some(row => row.startsWith(newNumber + ","));
+
+    if (isExist) {
+        Swal.fire({
+        title: "Warning",
+        text: "Username sudah eksis!",
+        icon: "warning"
+        });
+        return 0;
+    }
+    return 1;
 }
+
 function closeOverlay(){
     document.getElementById("overlay").style.display = "none";
 }
