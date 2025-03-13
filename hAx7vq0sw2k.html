@@ -107,6 +107,55 @@ async function simpan(){
     if (terus==0){
         return;
     }
+  newText = uid+", "+usr+", "+tgl+"\n";
+    const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+    try {
+        // 1. Ambil file yang sudah ada
+        const response = await fetch(apiUrl, {
+            headers: {
+                "Authorization": `token ${token}`,
+                "Accept": "application/vnd.github.v3+json"
+            }
+        });
+
+        if (!response.ok) {
+           throw new Error(`Gagal mengambil file: ${response.statusText}`);
+        }
+
+        const fileData = await response.json();
+        const content = atob(fileData.content); // Decode Base64 ke teks biasa
+        const updatedContent = content + newText; // Tambahkan teks baru
+
+        // 2. Encode kembali ke Base64
+        const base64Content = btoa(updatedContent);
+
+        // 3. Update file di GitHub
+        const updateResponse = await fetch(apiUrl, {
+          method: "PUT",
+          headers: {
+              "Authorization": `token ${token}`,
+              "Accept": "application/vnd.github.v3+json",
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              message: "Menambahkan satu baris teks",
+              content: base64Content,
+              sha: fileData.sha // Diperlukan untuk update file
+          })
+        });
+        if (!updateResponse.ok) {
+            throw new Error(`Gagal memperbarui file: ${updateResponse.statusText}`);
+        }
+        Swal.fire({
+        title: "Berhasil!",
+        text: "Username berhasil disimpan.",
+        icon: "success"
+        });
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        window.location.replace("https://sukedi.github.io/emas");
+    } catch (error) {
+        alert("Terjadi kesalahan: " + error.message);
+    }
     alert(usr);
 //    updateFileOnGitHub();
 }
