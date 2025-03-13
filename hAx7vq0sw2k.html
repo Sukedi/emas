@@ -103,11 +103,17 @@ async function simpan(){
         });
         return;
     }
-    
+    let terus = await cekExist(usr);
+    if (terus==0){
+        return;
+    }
     alert(usr);
 //    updateFileOnGitHub();
 }
-    
+
+function cekExist(para){
+   return 1;
+}
 function closeOverlay(){
     document.getElementById("overlay").style.display = "none";
 }
