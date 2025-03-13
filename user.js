@@ -29,7 +29,7 @@ if (!response.ok) {
 const textData = await response.text();
 const rows = textData.split("\n").map(row => row.trim()).filter(row => row !== "");
 const isExist = rows.some(row => row.startsWith(newNumber + ","));
-usrx="Username tak terdaftar. <a href='hAx7vq0sw2k.html'>Klik di sini untuk mendaftar</a>";
+usrx="[Username tak terdaftar]";
 if (isExist) {
     const lines = textData.split("\n").map(line => line.split(", ").map(item => item.trim()));
     lines.forEach((row, i) => {
