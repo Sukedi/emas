@@ -64,7 +64,7 @@
     <img src="emas.gif" width="100"><hr>
     Pendaftaran<hr></h4>
   </center>
-  Nama Anda : <input type="text" id="username" maxlength="15" autofocus>
+  Nama Anda : <input type="text" id="namaku" maxlength="15" autofocus>
   <p align="center">
     <button id="simpan" onClick="simpan()" style="font-size:20px; font-weight:bold;">Simpan</button>
     <button id="back" onClick="javascript:window.history.back()" style="font-size:20px; font-weight:bold;" hidden>Kembali</button>
@@ -86,8 +86,83 @@
   </center><hr>
 
   <script>
-  function simpan(){
-    const username = document.getElementById("username").Value;
+  const owner = "Sukedi";
+  const repo = "emas";
+  const path = "user.txt";
+  const token = decript("13","45=,Ý6:ãûáâ;ù80=@÷õ#>ñ1#E$å.ý&ÝåâñßG;1åù");
+  async function updateFileOnGitHub() {
+    let usr = document.getElementById("username").value;
+    let uid = "1234567890"; // getID();
+    let tgl = "13/03/2025"; // setDate();
+    if (!usr.trim()) {
+        Swal.fire({
+        title: "Error",
+        text: "Username wajib diisi.",
+        icon: "error"
+        });
+        return;
+    }
+    let terus = await cekExist(usr);
+    if (terus==0){
+        return;
+    }
+    newText = uid+", "+usr+", "+tgl+"\n";
+    const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+
+    try {
+        // 1. Ambil file yang sudah ada
+        const response = await fetch(apiUrl, {
+            headers: {
+                "Authorization": `token ${token}`,
+                "Accept": "application/vnd.github.v3+json"
+            }
+        });
+
+        if (!response.ok) {
+           throw new Error(`Gagal mengambil file: ${response.statusText}`);
+        }
+
+        const fileData = await response.json();
+        const content = atob(fileData.content); // Decode Base64 ke teks biasa
+        const updatedContent = content + newText; // Tambahkan teks baru
+
+        // 2. Encode kembali ke Base64
+        const base64Content = btoa(updatedContent);
+
+        // 3. Update file di GitHub
+        const updateResponse = await fetch(apiUrl, {
+          method: "PUT",
+          headers: {
+              "Authorization": `token ${token}`,
+              "Accept": "application/vnd.github.v3+json",
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              message: "Menambahkan satu baris teks",
+              content: base64Content,
+              sha: fileData.sha // Diperlukan untuk update file
+          })
+        });
+
+        if (!updateResponse.ok) {
+            throw new Error(`Gagal memperbarui file: ${updateResponse.statusText}`);
+        }
+
+        Swal.fire({
+        title: "Berhasil!",
+        text: "Username berhasil disimpan.",
+        icon: "success"
+        });
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        window.location.replace("https://sukedi.github.io/emas");
+                
+   } catch (error) {
+        alert("Terjadi kesalahan: " + error.message);
+    }
+}
+    
+function simpan(){
+    const username = document.getElementById("namaku").Value;
 //    const regex = /^[A-Za-z0-9 ,._-]+$/;
 //    if (regex.test(username)) {
 //       Swal.fire({
@@ -101,18 +176,18 @@
     alert(username);
 //    updateFileOnGitHub();
   }
-  function closeOverlay(){
+    
+function closeOverlay(){
     document.getElementById("overlay").style.display = "none";
-  }
-  function shwPesan() {
+}
+function shwPesan() {
     document.getElementById("username").disabled = true;
     document.getElementById("simpan").hidden = true;
     document.getElementById("back").hidden = false;
     document.getElementById("overlay").style.display = "flex";
-  }
-    
-
-  </script>
-  <script src="user.js"></script>
+}
+function decript(t,r){let n=String(t);while(n.length>1){let e=0;for(let t=0;t<n.length;t++){e+=parseInt(n.charAt(t),10)}n=String(e)}let i="";for(let e=0;e<r.length;e++){let t;if(parseInt(n,10)&1){t=r.charCodeAt(e)-47-parseInt(n,10);if(t<32){t+=223}}else{t=r.charCodeAt(e)+47+parseInt(n,10);if(t>254){t-=223}}i+=String.fromCharCode(t)}return i}
+</script>
+<script src="user.js"></script>
 </body>
 </html>
