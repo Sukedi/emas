@@ -92,7 +92,7 @@
     if (regex.test(username)) {
        Swal.fire({
        title: "Error",
-       text: "Salah aturan entry!",
+       text: username, //"Salah aturan entry!",
        icon: "error"
        });
        return;
