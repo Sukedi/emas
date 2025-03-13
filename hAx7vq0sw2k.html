@@ -86,22 +86,27 @@
   </center><hr>
 
   <script>
-    
-function simpan(){
-    const namaku = document.getElementById("nama").value;
-    const regex = /^[A-Za-z0-9 ,._-]+$/;
-    if (regex.test(username) || namaku=="") {
-       Swal.fire({
-       title: "Error",
-       text: "Anda salah entry!",
-       icon: "error"
-       });
-       return;
+  const owner = "Sukedi";
+  const repo = "emas";
+  const path = "user.txt";
+  const token = decript("13","45=,Ý6:ãûáâ;ù80=@÷õ#>ñ1#E$å.ý&ÝåâñßG;1åù");
+  
+async function simpan(){
+    let usr = document.getElementById("nama").value;
+    let uid = "1234567890"; // getID();
+    let tgl = "13/03/2025"; // setDate();
+    if (!usr.trim()) {
+        Swal.fire({
+        title: "Error",
+        text: "Username wajib diisi.",
+        icon: "error"
+        });
+        return;
     }
     
-    alert(namaku);
+    alert(usr);
 //    updateFileOnGitHub();
-  }
+}
     
 function closeOverlay(){
     document.getElementById("overlay").style.display = "none";
