@@ -99,7 +99,7 @@
     }
     //lanjut...
     alert("okey!");
-    updateFileOnGitHub();
+//    updateFileOnGitHub();
   }
   function closeOverlay(){
     document.getElementById("overlay").style.display = "none";
@@ -111,145 +111,7 @@
     document.getElementById("overlay").style.display = "flex";
   }
     
-const owner = "Sukedi";
-const repo = "emas";
-const path = "user.txt";
-const token = decript("13","45=,Ý6:ãûáâ;ù80=@÷õ#>ñ1#E$å.ý&ÝåâñßG;1åù");
-async function updateFileOnGitHub() {
-            let usr = document.getElementById("username").value;
-            let uid = getID();
-            let tgl = setDate();
-            if (!usr.trim()) {
-                Swal.fire({
-                title: "Error",
-                text: "Username wajib diisi.",
-                icon: "error"
-                });
-                return;
-            }
-            let terus = await cekExist(usr);
-            if (terus==0){
-                return;
-            }
-            newText = uid+", "+usr+", "+tgl+"\n";
-            const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 
-            try {
-                // 1. Ambil file yang sudah ada
-                const response = await fetch(apiUrl, {
-                    headers: {
-                        "Authorization": `token ${token}`,
-                        "Accept": "application/vnd.github.v3+json"
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error(`Gagal mengambil file: ${response.statusText}`);
-                }
-
-                const fileData = await response.json();
-                const content = atob(fileData.content); // Decode Base64 ke teks biasa
-                const updatedContent = content + newText; // Tambahkan teks baru
-
-                // 2. Encode kembali ke Base64
-                const base64Content = btoa(updatedContent);
-
-                // 3. Update file di GitHub
-                const updateResponse = await fetch(apiUrl, {
-                    method: "PUT",
-                    headers: {
-                        "Authorization": `token ${token}`,
-                        "Accept": "application/vnd.github.v3+json",
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        message: "Menambahkan satu baris teks",
-                        content: base64Content,
-                        sha: fileData.sha // Diperlukan untuk update file
-                    })
-                });
-
-                if (!updateResponse.ok) {
-                    throw new Error(`Gagal memperbarui file: ${updateResponse.statusText}`);
-                }
-
-                Swal.fire({
-                title: "Berhasil!",
-                text: "Username berhasil disimpan.",
-                icon: "success"
-                });
-                await new Promise(resolve => setTimeout(resolve, 5000));
-                window.location.replace("https://sukedi.github.io/emas");
-                
-       } catch (error) {
-               // console.error("Error:", error);
-                alert("Terjadi kesalahan: " + error.message);
-            }
-        }
-
-  function decript(t,r){let n=String(t);while(n.length>1){let e=0;for(let t=0;t<n.length;t++){e+=parseInt(n.charAt(t),10)}n=String(e)}let i="";for(let e=0;e<r.length;e++){let t;if(parseInt(n,10)&1){t=r.charCodeAt(e)-47-parseInt(n,10);if(t<32){t+=223}}else{t=r.charCodeAt(e)+47+parseInt(n,10);if(t>254){t-=223}}i+=String.fromCharCode(t)}return i}
-
-  async function cekExist(newNumber) {
-    const dataFile = "user.txt"; // Path ke file data.txt
-    const response = await fetch(dataFile);
-    
-    if (!response.ok) {
-        Swal.fire({
-        title: "Error",
-        text: "Gagal membaca file data!",
-        icon: "error"
-        });
-        return 0;
-    }
-
-    const textData = await response.text();
-    const rows = textData.split("\n").map(row => row.trim()).filter(row => row !== ""); // Pisah per baris
-
-    // Cek apakah nomor sudah ada dalam data
-    const isExist = rows.some(row => row.startsWith(newNumber + ",")); // Pengecekan berbasis nomor
-
-    if (isExist) {
-        Swal.fire({
-        title: "Warning",
-        text: "Username sudah eksis!",
-        icon: "warning"
-        });
-        return 0;
-    }
-    return 1;
-    }
-
-  });
-
-  function setDate(){
-  let date = new Date();
-  date.setMonth(date.getMonth() + 1);
-  let blndpn = date.toLocaleDateString('id-ID', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric'
-  });
-  let parts = blndpn.split("/"); // Pisahkan DD/MM/YYYY
-  return new Date(parts[2], parts[1] - 1, parts[0]); // Urutan: YYYY, MM, DD                                
-  }
-
-  function getID(){
-    const userAgent = navigator.userAgent;
-    const platform = navigator.platform;
-    const screenWidth = window.screen.width;
-    const screenHeight = window.screen.height;
-    const fingerprint = `${userAgent};${platform};${screenWidth}x${screenHeight}`;
-    let hash = await toHASH(fingerprint);
-    return hash;
-  }
-  async function toHASH(text) {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(text);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, "0")).join("");
-    return hashHex;
-  }
   </script>
   <script src="user.js"></script>
 </body>
