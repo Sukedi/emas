@@ -6,6 +6,7 @@
   <meta property="og:image" content='https://sukedi.github.io/emas/emas.jpg'>
   <meta name="viewport" content="width=device-width, user-scalable=no">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <title>:::Emas:::</title>
   <style>
     .overlay {
@@ -107,7 +108,7 @@ async function simpan(){
     if (terus==0){
         return;
     }
-  newText = uid+", "+usr+", "+tgl+"\n";
+    newText = uid+", "+usr+", "+tgl+"\n";
     const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
     try {
         // 1. Ambil file yang sudah ada
@@ -159,7 +160,28 @@ async function simpan(){
     alert(usr);
 //    updateFileOnGitHub();
 }
-
+    
+function getID(){
+    const userAgent = navigator.userAgent;
+    const platform = navigator.platform;
+    const screenWidth = window.screen.width;
+    const screenHeight = window.screen.height;
+    const fingerprint = `${userAgent};${platform};${screenWidth}x${screenHeight}`;
+    return CryptoJS.SHA256(fingerprint).toString(CryptoJS.enc.Hex);
+}
+    
+function setDate(){
+  let date = new Date();
+  date.setMonth(date.getMonth() + 1);
+  let blndpn = date.toLocaleDateString('id-ID', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  });
+  let parts = blndpn.split("/"); // Pisahkan DD/MM/YYYY
+  return new Date(parts[2], parts[1] - 1, parts[0]); // Urutan: YYYY, MM, DD                                
+}
+    
 async function cekExist(newNumber) {
     const dataFile = "user.txt";
     const response = await fetch(dataFile);
