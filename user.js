@@ -5,8 +5,8 @@ async function device_id(nn){
     const screenHeight = window.screen.height;
     const fingerprint = `${userAgent};${platform};${screenWidth}x${screenHeight}`;
     shaJS = CryptoJS.SHA256(fingerprint).toString(CryptoJS.enc.Hex);
-    cekExist(shaJS,nn);
-    return shaJS;
+//    cekExist(shaJS,nn);
+document.getElementById("usr").innerHTML= shaJS;
 }
 
 async function cekExist(newNumber,nx) {
