@@ -104,7 +104,7 @@ async function simpan(){
         });
         return;
     }
-    let terus = await cekExist(usr);
+    let terus = await cekExist2(usr);
     if (terus==0){
         return;
     }
@@ -179,7 +179,7 @@ function setDate(){
   let parts = blndpn.split("/"); // Pisahkan DD/MM/YYYY
   return new Date(parts[2], parts[1] - 1, parts[0]); // Urutan: YYYY, MM, DD                                
 }
-async function cekExist(newNumber) {
+async function cekExist2(newNumber) {
     const dataFile = "user.txt";
     const response = await fetch(dataFile);
     if (!response.ok) {
