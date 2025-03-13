@@ -89,7 +89,7 @@
   function simpan(){
     const username = document.getElementById("username").Value;
     const regex = /^[A-Za-z0-9 ,._-]+$/;
-    if (!regex.test(username)) {
+    if (regex.test(username)) {
        Swal.fire({
        title: "Error",
        text: "Salah aturan entry!",
