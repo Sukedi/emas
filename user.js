@@ -8,35 +8,6 @@ async function device_id(nn){
     cekID(shaJS,nn);
 }
 
-async function cekExist(newNumber,nx) {
-const dataFile = "user.txt";
-const response = await fetch(dataFile);
-if (!response.ok) {
-    Swal.fire({
-    title: "Error",
-    text: "Gagal membaca file data!",
-    icon: "error"
-    });
-    return;
-}
-const textData = await response.text();
-const rows = textData.split("\n").map(row => row.trim()).filter(row => row !== "");
-const isExist = rows.some(row => row.startsWith(newNumber + ","));
-usrx="[Username tak terdaftar]";
-if (isExist) {
-    const lines = textData.split("\n").map(line => line.split(", ").map(item => item.trim()));
-    lines.forEach((row, i) => {
-    row.forEach((col, j) => {
-        if (j==1){
-            usrx = `[${col}]`;
-        }
-    });
-    });
-    if (nx==1){ shwPesan(); }
-}
-document.getElementById("usr").innerHTML= usrx;
-}
-
 async function cekID(uid,nx){
     const url = "user.txt";
     let usrx="[Username tak terdaftar]";
@@ -53,13 +24,15 @@ async function cekID(uid,nx){
                  ketemu = 1;
                  xrow.forEach((xx, n) => {
               //id      if (n==0){ id = `${xx}: `; }
-                    if (n==1){ usrx = `${xx}, `; }
+                    if (n==1){ yy = `${xx}, `; }
               //tgl      if (n==2){ tgl = `${xx}.`; }
                });
           }
        });
     });
     if (ketemu == 1){
+        zz=yy.trim();
+        usrx=zz.substr(0,zz.length-1);
         if (nx==1){ shwPesan(); }
     }
     } catch (error) { }
