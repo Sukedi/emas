@@ -107,10 +107,8 @@
            if (`${col}`!==""){
            if (j<2){
               output += "<td align='right'>"+parseFloat(`${col}`).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })+"</td>";
-           } else if (j==3) {
+           } else if (j>1) {
               output += "<td align='right'>"+parseInt(`${col}`).toLocaleString('en-US')+"</td>";
-           } else {
-              output += "<td>"+`${col}`+"</td>";
            } 
            if (j==0){ sumBRT+=parseFloat(`${col}`); }
            if (j==1){ sumKRT+=parseFloat(`${col}`); }
