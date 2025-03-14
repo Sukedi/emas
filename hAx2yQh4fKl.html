@@ -152,12 +152,13 @@
       else { blk="5"; }
       return dpn+blk;
    }
+   }
    function ubahGambar() {
     let select = document.getElementById("warna");
     let selectedOption = select.options[select.selectedIndex];
     document.getElementById("icon").src = selectedOption.getAttribute("data-img");
    }
-   }
+   
   </script>
   <script src="user.js"></script>
   <script src="sg.js"></script>
