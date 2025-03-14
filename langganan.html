@@ -5,6 +5,7 @@
   <meta name='description' content='Berdasarkan berat luar & dalam air.'>
   <meta property="og:image" content='https://sukedi.github.io/emas/emas.jpg'>
   <meta name="viewport" content="width=device-width, user-scalable=no">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>:::Emas:::</title>
   <style>
   body {
@@ -13,6 +14,10 @@
     font-family: arial;
     font-size: 14px;
   }
+  .checkbox-big {
+    transform: scale(1.3);
+    margin: 5px;
+   }
   </style>
 </head>
 <body onLoad="device_id(0)">
@@ -22,29 +27,59 @@
     <img src="emas.gif" width="100"><hr>
     Halaman Berlangganan<hr></h4>
   </center>
-  <p>Untuk melanjutkan layanan kami kepada 
-     anda setelah sebulan anda menggunakan 
-     program versi percobaan (<i>trial 
-     version</i>), maka sudah waktunya 
-     bagi anda untuk memutuskan berlanggan 
-     <b>Program Emas</b> ini.</p>
-  <p>Kami memberikan 3 (tiga) pilihan  
-     untuk anda, yakni: a) Langganan 
-     bulanan, b) Langganan tahunan, 
-     dan c) Beli sekali untuk 
-     selamanya.</p>
-  <p align="center"><button onClick="javascript:window.location.replace('next.html')">
-     Iya, lanjutkan</button>&nbsp;&nbsp;&nbsp;
-     <button onClick="javascript:window.close()">
-     Tidak, terima kasih</button>
+  <p>Silakan pilih jenis langganan di bawah ini 
+    lalu klik tombol Kirim:</p>
+    <ol>
+      <li><input type="radio" id="pil1" 
+        class="checkbox-big" name="pilih" 
+        value="berlangganan Rp.100,000 per bulan.">
+        <label onClick="cek(1)">
+        Rp.100,000 per bulan.</label></li>
+      <li><input type="radio" id="pil2" 
+        class="checkbox-big" name="pilih" 
+        value="berlangganan Rp.1,000,000 per tahun.">
+        <label onClick="cek(2)">
+        Rp.1,000,000 per tahun.</label></li>
+      <li><input type="radio" id="pil3" 
+        class="checkbox-big" name="pilih" 
+        value="membeli Rp.2,500,000 untuk selamanya.">
+        <label onClick="cek(3)">
+        Membeli Rp.2,500,000 untuk selamanya.<br>
+        </label></li>
+    </ol></p>
+  <p align="center"><button style="font-size:16px;color:blue;" 
+     id="send" onClick="kirim()" disabled>Kirim</button>&nbsp;&nbsp;&nbsp;
+     <button style="font-size:16px;color:red;" onClick="javascript:window.close()">
+     Cancel</button>
   </p>
    <hr>
   <center>
     <p style="font-size:11px; color:green;">
       Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
   </center><hr>
+
   <script>
-  
+  function kirim(){
+    Swal.fire({
+    title: "Info",
+    text: "Di WhatsApp, silakan klik [Lanjut ke Chat]",
+    icon: "info"
+    });
+    let usr = document.getElementById("usr").innerHTML;
+    var pil=document.querySelector('input[name="pilih"]:checked');
+    plh = pil.value;
+    plhn= plh.replace(/ /g, "%20");
+    let txtWA = "https://wa.me/+6281394641984?text="+
+    "Mohon%20tidak%20mengubah%20kalimat%20di%20bawah%20ini%3A%0A"+
+    usr+"%20-%20Memilih%20"+plhn;
+    window.open(txtWA);
+  }
+  function cek(nn){
+    cdx = "pil"+nn.toString();
+    vc1 = document.getElementById(cdx).checked;
+    document.getElementById(cdx).checked = !vc1;
+    document.getElementById("send").disabled=false;
+  }
   </script>
   <script src="user.js"></script>
 </body>
