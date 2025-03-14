@@ -41,9 +41,9 @@
         Rp.1,000,000 per tahun.</label></li>
       <li><input type="radio" id="pil3" 
         class="checkbox-big" name="pilih" 
-        value="membeli Rp.2,500,000 untuk selamanya.">
+        value="membeli Rp.2,500,000 satu kali untuk selamanya.">
         <label onClick="cek(3)">
-        Membeli Rp.2,500,000 untuk selamanya.<br>
+        Membeli Rp.2,500,000 satu kali untuk selamanya.<br>
         </label></li>
     </ol></p>
   <p align="center"><button style="font-size:16px;color:blue;" 
@@ -60,12 +60,13 @@
   <script>
   function kirim(){
     let usr = document.getElementById("usr").innerHTML;
+    if (!usr){ usr="Saya"; }
     var pil=document.querySelector('input[name="pilih"]:checked');
     plh = pil.value;
     plhn= plh.replace(/ /g, "%20");
     let txtWA = "https://wa.me/+6281394641984?text="+
     "Mohon%20tidak%20mengubah%20kalimat%20di%20bawah%20ini%3A%0A"+
-    usr+"%20-%20Memilih%20"+plhn;
+    usr+"%20memilih%20"+plhn;
     window.open(txtWA);
   }
   function cek(nn){
