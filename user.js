@@ -36,5 +36,5 @@ async function cekID(uid,nx){
         if (nx==1){ shwPesan(); }
     }
     } catch (error) { }
-    document.getElementById("usr").innerHTML= usrx;
+    document.getElementById("usr").innerHTML= "["+usrx+"]";
 }
