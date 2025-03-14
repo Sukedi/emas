@@ -48,7 +48,7 @@
     </ol></p>
   <p align="center"><button style="font-size:16px;color:blue;" 
      id="send" onClick="kirim()" disabled>Kirim</button>&nbsp;&nbsp;&nbsp;
-     <button style="font-size:16px;color:red;" onClick="javascript:window.close()">
+     <button style="font-size:16px;color:red;" onClick="javascript:window.location.replace('selesai.html')">
      Cancel</button>
   </p>
    <hr>
@@ -68,6 +68,9 @@
     "Mohon%20tidak%20mengubah%20kalimat%20di%20bawah%20ini%3A%0A"+
     usr+"%20memilih%20"+plhn;
     window.open(txtWA);
+    setTimeout(() => {
+        window.location.replace("selesai.html");
+     }, 3000);
   }
   function cek(nn){
     cdx = "pil"+nn.toString();
