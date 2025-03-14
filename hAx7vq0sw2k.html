@@ -157,7 +157,6 @@ async function simpan(){
     } catch (error) {
         alert("Terjadi kesalahan: " + error.message);
     }
-    alert(usr);
 //    updateFileOnGitHub();
 }
 function getID(){
@@ -176,8 +175,10 @@ function setDate(){
     month: '2-digit',
     year: 'numeric'
   });
-  let parts = blndpn.split("/"); // Pisahkan DD/MM/YYYY
-  return new Date(parts[2], parts[1] - 1, parts[0]); // Urutan: YYYY, MM, DD                                
+  return blndpn;
+//   di bawah ini utk komparasi:
+//   let parts = blndpn.split("/"); // Pisahkan DD/MM/YYYY
+//   return new Date(parts[2], parts[1] - 1, parts[0]); // Urutan: YYYY, MM, DD                                
 }
 async function cekExist2(newNumber) {
     const dataFile = "user.txt";
@@ -208,7 +209,7 @@ function closeOverlay(){
     document.getElementById("overlay").style.display = "none";
 }
 function shwPesan() {
-    document.getElementById("username").disabled = true;
+    document.getElementById("nama").readonly = true;
     document.getElementById("simpan").hidden = true;
     document.getElementById("back").hidden = false;
     document.getElementById("overlay").style.display = "flex";
