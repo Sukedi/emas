@@ -9,8 +9,9 @@ async function device_id(nn){
 }
 
 async function cekID(uid,nx){
-    const url = "user.txt";
+    const url = "https://sukedi.github.io/emas/user.txt";
     let usrx="Username tak terdaftar";
+    let tglx="01/01/1900";
     try {
        const response = await fetch(url);
        const text = await response.text();
@@ -24,17 +25,20 @@ async function cekID(uid,nx){
                  ketemu = 1;
                  xrow.forEach((xx, n) => {
               //id      if (n==0){ id = `${xx}: `; }
-                    if (n==1){ yy = `${xx}, `; }
-              //tgl      if (n==2){ tgl = `${xx}.`; }
+                    if (n==1){ usrx = `${xx}`; }
+                    if (n==2){ tglx = `${xx}`; }
                });
           }
        });
     });
     if (ketemu == 1){
-        zz=yy.trim();
-        usrx=zz.substr(0,zz.length-1);
+     //   zz=yy.trim();
+     //   usrx=zz.substr(0,zz.length-1);
         if (nx==1){ shwPesan(); }
     }
     } catch (error) { }
     document.getElementById("usr").innerHTML= "["+usrx+"]";
+    if (nx==9){
+        document.getElementById("tgl").innerHTML= tglx;
+    }
 }
