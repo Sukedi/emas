@@ -65,8 +65,7 @@
   function cekKadal(){
     nanti=document.getElementById("tgl").innerHTML;
     skrng=getDate();
-document.getElementById("kadal").innerHTML=skrng;
-    if (skrng>nanti){
+    if (parseDate(skrng)<=parseDate(nanti)){
        document.getElementById("kadal").innerHTML="Oke";
     }
   }
@@ -78,6 +77,10 @@ document.getElementById("kadal").innerHTML=skrng;
     year: 'numeric'
   });
   return nowx;
+  }
+  function parseDate(dateStr) {
+    let parts = dateStr.split("/"); // Pisahkan DD/MM/YYYY
+    return new Date(parts[2], parts[1] - 1, parts[0]); // Urutan: YYYY, MM, DD
   }
   </script>
   <script src="user.js"></script>
