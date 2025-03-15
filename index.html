@@ -95,13 +95,15 @@
         window.location.replace("https://sukedi.github.io/emas/ditolak.html");
     }
     device_id(9);
+    document.getElementById("kadal").innerHTML=getDate();
+       
     cekKadal();
   }
   
   function cekKadal(){
     nanti=document.getElementById("tgl").innerHTML;
     skrng=getDate();
-    if (parseDate(skrng)>parseDate(nanti)){
+    if (parseDate(skrng)<=parseDate(nanti)){
        document.getElementById("kadal").innerHTML="Oke";
        document.getElementById("overlay").style.display = "flex";      
     }
@@ -122,7 +124,7 @@
   function closeOverlay(){
     document.getElementById("overlay").style.display = "none";
     window.location.replace("langganan.html");
-   }
+  }
   </script>
   <script src="user.js"></script>
 </body>
