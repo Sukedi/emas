@@ -10,7 +10,7 @@ async function device_id(nn){
 
 async function cekID(uid,nx){
     const url = "user.txt";
-    let usrx="[Username tak terdaftar]";
+    let usrx="Username tak terdaftar";
     try {
        const response = await fetch(url);
        const text = await response.text();
