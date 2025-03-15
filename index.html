@@ -20,6 +20,7 @@
 <body onLoad="detekOS()">
   <div id="usr" style="font-size:11px; color:#FFD700;"></div>
   <div id="tgl" style="font-size:11px; color:#FFD700;"></div>
+  <div id="kadal" style="font-size:11px; color:#FFD700;"></div>
   <center>
     <h4 style="font-size:14px; color:#FFD700;">
     <img src="emas.gif" width="100"><hr>
@@ -58,6 +59,24 @@
         window.location.replace("https://sukedi.github.io/emas/ditolak.html");
     }
     device_id(9);
+    cekKadal();
+  }
+  
+  function cekKadal(){
+    nanti=document.getElementById("tgl").innerHTML;
+    skrng=getDate();
+    if (skrng<=nanti){
+       document.getElementById("kadal").innerHTML="Oke";
+    }
+  }
+  function getDate(){
+  let date = new Date();
+  let nowx = date.toLocaleDateString('id-ID', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  });
+  return nowx;
   }
   </script>
   <script src="user.js"></script>
