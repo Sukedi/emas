@@ -65,7 +65,8 @@
   function cekKadal(){
     nanti=document.getElementById("tgl").innerHTML;
     skrng=getDate();
-    if (skrng<=nanti){
+document.getElementById("kadal").innerHTML=skrng;
+    if (skrng>nanti){
        document.getElementById("kadal").innerHTML="Oke";
     }
   }
