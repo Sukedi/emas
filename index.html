@@ -102,7 +102,7 @@
   function cekKadal(){
     nanti=document.getElementById("tgl").innerHTML;
     skrng=document.getElementById("kadal").innerHTML; //getDate();
-    if (parseDate(skrng)<=parseDate(nanti)){
+    if (parseDate(skrng)>parseDate(nanti)){
        document.getElementById("overlay").style.display = "flex";      
     }
   }
