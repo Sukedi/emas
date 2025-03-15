@@ -9,6 +9,35 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <title>:::Emas:::</title>
   <style>
+  .overlay {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.5); /* Transparan hitam */
+     display: none;
+     justify-content: center;
+     align-items: center;
+     color: blue;
+     font-size: 18px;
+  }
+  .content {
+     background: rgba(255, 255, 255, 0.8); /* Latar putih transparan */
+     padding: 20px;
+     border-radius: 10px;
+     text-align: center;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  .close-btn {
+     margin-top: 10px;
+     padding: 10px 20px;
+     border: none;
+     background: red;
+     color: white;
+     cursor: pointer;
+     border-radius: 5px;
+  }
   body {
     background: linear-gradient(to bottom, royalblue, skyblue, lightblue);
     height: 100vh;
@@ -18,6 +47,13 @@
   </style>
 </head>
 <body onLoad="detekOS()">
+  <div class="overlay" id="overlay">
+        <div class="content">
+            <p><b>Versi trial selesai.</b></p>
+              <p>Lanjut ke versi langganan.</p>
+            <button class="close-btn" onclick="closeOverlay()">Tutup</button>
+        </div>
+  </div>
   <div id="usr" style="font-size:11px; color:#FFD700;"></div>
   <div id="tgl" style="font-size:11px; color:#FFD700;"></div>
   <div id="kadal" style="font-size:11px; color:#FFD700;"></div>
@@ -67,6 +103,7 @@
     skrng=getDate();
     if (parseDate(skrng)<=parseDate(nanti)){
        document.getElementById("kadal").innerHTML="Oke";
+       document.getElementById("overlay").style.display = "flex";      
     }
   }
   function getDate(){
@@ -82,6 +119,10 @@
     let parts = dateStr.split("/"); // Pisahkan DD/MM/YYYY
     return new Date(parts[2], parts[1] - 1, parts[0]); // Urutan: YYYY, MM, DD
   }
+  function closeOverlay(){
+    document.getElementById("overlay").style.display = "none";
+    window.location.replace("langganan.html");
+   }
   </script>
   <script src="user.js"></script>
 </body>
