@@ -49,14 +49,14 @@
 <body onLoad="detekOS()">
   <div class="overlay" id="overlay">
         <div class="content">
-            <p><b>Versi trial selesai.</b></p>
-              <p>Lanjut ke versi langganan.</p>
-            <button class="close-btn" onclick="closeOverlay()">Tutup</button>
+            <p><b><i>Trial Version</i> telah berakhir.</b></p>
+              <p>Silakan untuk berlangganan.</p>
+            <button class="close-btn" onclick="closeOverlay()">OK</button>
         </div>
   </div>
   <div id="usr" style="font-size:11px; color:#FFD700;"></div>
-  <div id="tgl" style="font-size:11px; color:#FFD700;"></div>
-  <div id="kadal" style="font-size:11px; color:#FFD700;"></div>
+  <div id="tgl" hidden></div>
+  <div id="kadal" hidden></div>
   <center>
     <h4 style="font-size:14px; color:#FFD700;">
     <img src="emas.gif" width="100"><hr>
@@ -117,7 +117,6 @@
   }
   function parseDate(dateStr) {
     let parts = dateStr.split("/"); // Pisahkan DD/MM/YYYY
-    //return new Date(parts[2], parts[1] - 1, parts[0]); // Urutan: YYYY, MM, DD
     return parts[2]+parts[1]+parts[0];
   }
   function closeOverlay(){
