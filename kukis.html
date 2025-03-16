@@ -1,0 +1,50 @@
+<html>
+<body>
+    
+    <h3>Cookies</h3>
+    <p><button onclick="tulis()">Tulis</button></p>
+    <p><button onclick="baca()">Baca</button></p>
+    <p><button onclick="hapus()">Hapus</button></p>
+    
+<script>
+function tulis(){
+    setCookie("id", "1234567890", 365);
+}
+    
+function baca(){
+    aa = getCookie('id');
+    alert(aa);
+}
+    
+function hapus(){
+    deleteCookie("id");
+}
+
+function setCookie(name, value, days) {
+    let date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Hitung waktu expired
+    let expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    alert("oke");
+}
+
+function getCookie(name) {
+    let nameEQ = name + "=";
+    let cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim();
+        if (cookie.indexOf(nameEQ) === 0) {
+            return decodeURIComponent(cookie.substring(nameEQ.length));
+        }
+    }
+    return null;
+}
+
+function deleteCookie(name) {
+    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    alert("oke");
+}
+
+</script>
+</body>
+</html>
