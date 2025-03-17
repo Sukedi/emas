@@ -1,0 +1,25 @@
+<script>
+async function hashFingerprint() {
+    const fingerprint = navigator.userAgent + navigator.platform + window.screen.width;
+    
+    // Konversi string ke ArrayBuffer
+    const encoder = new TextEncoder();
+    const data = encoder.encode(fingerprint);
+    
+    // Hash dengan SHA-256
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    
+    // Konversi hasil hash ke format heksadesimal
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+    return hashHex;
+}
+
+// Contoh penggunaan
+hashFingerprint().then(hash => alert("Fingerprint Hash:", hash));
+
+hash=hashFingerprint();
+alert("Fingerprint Hash:", hash);
+
+</script>
