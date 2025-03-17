@@ -85,6 +85,7 @@
     <p style="font-size:11px; color:green;">
       Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
   </center><hr>
+
   <script>
   function detekOS() {
     let userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -98,14 +99,15 @@
     if (os !== "Android" && os !== "iPhone"){
         window.location.replace("https://sukedi.github.io/emas/ditolak.html");
     }
-    device_id(9);
+    mytgl=device_id(9);
     document.getElementById("kadal").innerHTML=parseDate(getDate());
-    cekKadal();
+    cekKadal(mytgl);
   }
   
-  function cekKadal(){
-    nanti=document.getElementById("tgl").innerHTML;
+  function cekKadal(ntdt){
+    //nanti=document.getElementById("tgl").innerHTML;
     skrng=document.getElementById("kadal").innerHTML;
+nanti=parseDate(ntdt);
 
 alert("now "+skrng);
 alert("ins "+nanti);

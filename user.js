@@ -9,7 +9,8 @@ async function device_id(nn){
         shaJS = CryptoJS.SHA256(fingerprint).toString(CryptoJS.enc.Hex);
         setCookie("usrid", shaJS, 3650);
     }
-    cekID(shaJS,nn);
+    tglku=cekID(shaJS,nn);
+    return tglku;
 }
 
 async function cekID(uid,nx){
@@ -42,6 +43,7 @@ async function cekID(uid,nx){
     if (nx==9){
         document.getElementById("tgl").innerHTML= parseDate(tglx);
     }
+    return tglx;
 }
 
 function setCookie(name, value, days){
