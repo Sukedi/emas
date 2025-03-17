@@ -40,7 +40,7 @@ async function cekID(uid,nx){
     } catch (error) { }
     document.getElementById("usr").innerHTML= "["+usrx+"]";
     if (nx==9){
-        document.getElementById("tgl").innerHTML= tglx;
+        document.getElementById("tgl").innerHTML= parseDate(tglx);
     }
 }
 

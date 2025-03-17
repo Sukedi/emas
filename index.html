@@ -55,8 +55,8 @@
         </div>
   </div>
   <div id="usr" style="font-size:11px; color:#FFD700;"></div>
-  <div id="tgl"></div>
-  <div id="kadal"></div>
+  <div id="tgl" hidden></div>
+  <div id="kadal" hidden></div>
   <center>
     <h4 style="font-size:14px; color:#FFD700;">
     <img src="emas.gif" width="100"><hr>
@@ -95,7 +95,7 @@
         window.location.replace("https://sukedi.github.io/emas/ditolak.html");
     }
     device_id(9);
-    document.getElementById("kadal").innerHTML=getDate();
+    document.getElementById("kadal").innerHTML=parseDate(getDate());
     cekKadal();
   }
   
