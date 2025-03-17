@@ -1,10 +1,14 @@
 async function device_id(nn){
-    const userAgent = navigator.userAgent;
-    const platform = navigator.platform;
-    const screenWidth = window.screen.width;
-    const screenHeight = window.screen.height;
-    const fingerprint = `${userAgent};${platform};${screenWidth}x${screenHeight}`;
-    shaJS = CryptoJS.SHA256(fingerprint).toString(CryptoJS.enc.Hex);
+    shaJS = getCookie("usrid");
+    if (!shaJS){
+        const userAgent = navigator.userAgent;
+        const platform = navigator.platform;
+        const screenWidth = window.screen.width;
+        const screenHeight = window.screen.height;
+        const fingerprint = `${userAgent};${platform};${screenWidth}x${screenHeight}`;
+        shaJS = CryptoJS.SHA256(fingerprint).toString(CryptoJS.enc.Hex);
+        setCookie("usrid", shaJS, 3650);
+    }
     cekID(shaJS,nn);
 }
 
@@ -24,7 +28,6 @@ async function cekID(uid,nx){
               if (ret == uid){
                  ketemu = 1;
                  xrow.forEach((xx, n) => {
-              //id      if (n==0){ id = `${xx}: `; }
                     if (n==1){ usrx = `${xx}`; }
                     if (n==2){ tglx = `${xx}`; }
                });
@@ -32,8 +35,6 @@ async function cekID(uid,nx){
        });
     });
     if (ketemu == 1){
-     //   zz=yy.trim();
-     //   usrx=zz.substr(0,zz.length-1);
         if (nx==1){ shwPesan(); }
     }
     } catch (error) { }
@@ -41,4 +42,23 @@ async function cekID(uid,nx){
     if (nx==9){
         document.getElementById("tgl").innerHTML= tglx;
     }
+}
+
+function setCookie(name, value, days){
+    let date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Hitung waktu expired
+    let expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+function getCookie(name){
+    let nameEQ = name + "=";
+    let cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim();
+        if (cookie.indexOf(nameEQ) === 0) {
+            return decodeURIComponent(cookie.substring(nameEQ.length));
+        }
+    }
+    return null;
 }
