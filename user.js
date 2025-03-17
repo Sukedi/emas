@@ -48,12 +48,7 @@ async function cekID(uid,nx){
 async function cekKadal(){
     skrng=parseDate(getDate());
     nanti=document.getElementById("tgl").innerHTML;
-    document.getElementById("kadal").innerHTML=skrng;
-
-alert("now "+skrng);
-alert("ins "+nanti);
-
-    if (parseInt(skrng) > parseInt(nanti)){
+    if (skrng > nanti){
        document.getElementById("overlay").style.display = "flex";      
     }
 }
