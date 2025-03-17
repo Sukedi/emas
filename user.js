@@ -42,6 +42,20 @@ async function cekID(uid,nx){
     if (nx==9){
         document.getElementById("tgl").innerHTML= parseDate(tglx);
     }
+    await cekKadal();
+}
+
+async function cekKadal(){
+    skrng=parseDate(getDate());
+    nanti=document.getElementById("tgl").innerHTML;
+    document.getElementById("kadal").innerHTML=skrng;
+
+alert("now "+skrng);
+alert("ins "+nanti);
+
+    if (parseInt(skrng) > parseInt(nanti)){
+       document.getElementById("overlay").style.display = "flex";      
+    }
 }
 
 function setCookie(name, value, days){

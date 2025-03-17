@@ -100,21 +100,7 @@
         window.location.replace("https://sukedi.github.io/emas/ditolak.html");
     }
     await device_id(9);
-    document.getElementById("kadal").innerHTML=parseDate(getDate());
-
-    await cekKadal();
-  }
-  
-  async function cekKadal(){
-    nanti=document.getElementById("tgl").innerHTML;
-    skrng=document.getElementById("kadal").innerHTML;
-
-alert("now "+skrng);
-alert("ins "+nanti);
-
-    if (parseInt(skrng) > parseInt(nanti)){
-       document.getElementById("overlay").style.display = "flex";      
-    }
+    
   }
 
   function getDate(){
@@ -126,10 +112,12 @@ alert("ins "+nanti);
   });
   return nowx;
   }
+
   function parseDate(dateStr) {
     let parts = dateStr.split("/"); // Pisahkan DD/MM/YYYY
     return parts[2]+parts[1]+parts[0];
   }
+
   function closeOverlay(){
     document.getElementById("overlay").style.display = "none";
     window.location.replace("langganan.html");
