@@ -63,21 +63,25 @@
   <center>
     <h4 style="font-size:14px; color:#FFD700;">
     <img src="emas.gif" width="100"><hr>
-    Pendaftaran<hr></h4>
+    Registrasi<hr></h4>
   </center>
   Nama Anda : <input type="text" id="nama" maxlength="15" autofocus>
   <p align="center">
     <button id="simpan" onClick="simpan()" style="font-size:20px; font-weight:bold;">Simpan</button>
     <button id="back" onClick="javascript:window.history.back()" style="font-size:20px; font-weight:bold;" hidden>Kembali</button>
   </p>
-  <p>Nama anda akan disimpan sebagai pengguna 
-  program-program yang tersaji dalam website ini. Nama 
-  anda hanya terkait dengan <i>handset</i> atau 
-  <i>handphone</i> yang anda gunakan ketika membuat 
-  <i>username</i> saat ini. Jika lain kali anda membuka 
-  program-program di website ini menggunakan 
-  <i>handset</i> atau <i>handphone</i> lain maka anda 
-  akan dianggap sebagai <i>user</i> yang berbeda.</p>
+  <p>Nama anda hanya terkait dengan <i>handphone</i> yang 
+  anda gunakan ketika membuat <i>username</i> saat ini. 
+  Jika lain kali anda membuka program-program di sini 
+  menggunakan <i>handphone</i> lain maka anda akan dianggap 
+  sebagai <i>user</i> yang berbeda. 
+  Pastikan anda menggunakan handphone pribadi 
+  dalam melakukan registrasi.
+  </p>
+  <p>Setelah klik tombol simpan, anda hatus tunggu sekitar 
+  5 menit untuk aktivasi sebab sistem harus melakukan 
+  proses autentikasi sebelum publish. 
+  </p>
   <div style="font-size:12px; color:blue; border:1px solid black; 
     text-align:center; padding:10px;"><i>Aturan entry nama anda:<br>Kombinasi A-Z, a-z, 0-9, spasi, titik, 
   koma, garis bawah dan minus.</i></div>
@@ -153,6 +157,12 @@ async function simpan(){
         icon: "success"
         });
         await new Promise(resolve => setTimeout(resolve, 5000));
+        Swal.fire({
+        title: "Info",
+        text: "Tunggu 5 menit untuk aktivasi.",
+        icon: "info"
+        });
+        await new Promise(resolve => setTimeout(resolve, 5000));
         window.location.replace("https://sukedi.github.io/emas");
     } catch (error) {
         alert("Terjadi kesalahan: " + error.message);
@@ -176,10 +186,8 @@ function setDate(){
     year: 'numeric'
   });
   return blndpn;
-//   di bawah ini utk komparasi:
-//   let parts = blndpn.split("/"); // Pisahkan DD/MM/YYYY
-//   return new Date(parts[2], parts[1] - 1, parts[0]); // Urutan: YYYY, MM, DD                                
 }
+
 async function cekExist2(newNumber) {
     const dataFile = "user.txt";
     const response = await fetch(dataFile);
