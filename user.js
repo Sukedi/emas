@@ -15,7 +15,7 @@ async function device_id(nn){
 async function cekID(uid,nx){
     const url = "https://sukedi.github.io/emas/user.txt";
     let usrx="Username tak terdaftar";
-    let tglx="01/01/1900";
+    let tglx="01/01/3000";
     try {
        const response = await fetch(url);
        const text = await response.text();
