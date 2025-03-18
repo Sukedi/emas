@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>:::Emas:::</title>
+  <style>
+  .overlay {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.5); /* Transparan hitam */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: blue;
+     font-size: 18px;
+  }
+  .content {
+     background: white; /* rgba(255, 255, 255, 0.8); /* Latar putih transparan */
+     padding: 20px;
+     border-radius: 10px;
+     text-align: center;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  .close-btn {
+     margin-top: 10px;
+     padding: 10px 20px;
+     border: none;
+     background: red;
+     color: white;
+     cursor: pointer;
+     border-radius: 5px;
+  }
+  body {
+    background: linear-gradient(to bottom, royalblue, skyblue, lightblue);
+    height: 100vh;
+    font-family: arial;
+    font-size: 14px;
+  }
+  </style>
+</head>
+<body>
+  <div class="overlay" id="overlay">
+        <div class="content">
+           <p><img src="stop.jpg" width="100"><br>
+           <b>Forbidden</b></p>
+           <p>Silakan registrasi terlebih dulu.</p>
+           <button class="close-btn" onclick="window.history.back()">Kembali</button>
+        </div>
+  </div>
+</body>
+</html>
