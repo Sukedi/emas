@@ -36,6 +36,13 @@ async function cekID(uid,nx){
     });
     if (ketemu == 1){
         if (nx==1){ shwPesan(); }
+    } else {
+        if (nx==9){
+            myurl="hAx7vq0sw2k.html";
+            document.getElementById("menu2").href = myurl;
+            document.getElementById("menu3").href = myurl;
+            document.getElementById("menu4").href = myurl;
+        }
     }
     } catch (error) { }
     document.getElementById("usr").innerHTML= "["+usrx+"]";
