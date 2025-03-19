@@ -9,6 +9,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <title>:::Emas:::</title>
   <style>
+  .bottom {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   width: 100vw;
+   height: 5vh;
+   background-color: #000000;
+   border: 1px solid black;
+   font-size: 13px;
+   color: white;
+  }
+
    body {
     font-family:arial;
     font-size:16px;
@@ -111,11 +123,13 @@
    <span class="spn" id="hasil" style="background-color:black; 
      font-size:2em; color:white; font-weight:bold;">Kadar : 0.00</span>
    <div><button onClick="calc()" style="font-size:20px; font-weight:bold;">
-   HITUNG</button></div><br>
-  <hr>
-  <p style="font-size:11px; color:green;">
-      Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
-  </center><hr>
+   HITUNG</button></div>
+
+  <div class='bottom'>
+  <center><p style="font-size:11px; color:green;">
+  Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
+  </center>
+  </div>
   
 <script>
 let hasil = document.getElementById("hasil");

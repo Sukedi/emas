@@ -9,6 +9,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <title>Struk</title>
   <style>
+  .bottom {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   width: 100vw;
+   height: 5vh;
+   background-color: #000000;
+   border: 1px solid black;
+   font-size: 13px;
+   color: white;
+  }
+
   body {
     background: linear-gradient(to bottom, royalblue, skyblue, lightblue);
     height: 100vh;
@@ -53,11 +65,14 @@
   &nbsp;*) Harga dibulatkan ribuan. Misal 1500000 diketik 1500.</p>
   </div>
   <p><div id="output" style="background-color:white;max-width:500px;"></div></p>
-  <div class="noprint">
-  <hr><center>
-  <p style="font-size:11px; color:green;">
-      Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
-  </center><hr></div>
+
+<div class="noprint">
+  <div class='bottom'>
+  <center><p style="font-size:11px; color:green;">
+  Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
+  </center>
+  </div>
+</div>
 
   <script>
   function simpan(){
