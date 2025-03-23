@@ -80,7 +80,8 @@
      brt2 = parseFloat(document.getElementById("berat2").value);
      NC = document.getElementById("warna").value;
      prc = parseFloat(document.getElementById("harga").value);
-     if (brt1==0 || brt2==0 || brt1<=brt2 || prc==0){
+   //  if (brt1==0 || brt2==0 || brt1<=brt2 || prc==0){
+     if (!brt1 || !brt2 || brt1<=brt2 || !prc){
         Swal.fire({
           title: "Error",
           text: "Cek entry data!",
