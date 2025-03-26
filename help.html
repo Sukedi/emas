@@ -28,6 +28,12 @@
     font-size: 14px;
   }
   </style>
+  <script>
+     window.onpopstate = function () {
+     window.history.back();
+     // window.location.href = "javascript:window.history.back()"; 
+     };
+  </script>
  </head>
  <body leftmargin="20px" rightmargin="10px">
   <div class='top'>
