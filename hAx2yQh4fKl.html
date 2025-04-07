@@ -154,12 +154,12 @@
    // output += "<button onclick='window.print()' class='noprint'>Cetak</button>&nbsp;&nbsp;<button onclick='kirim()' class='noprint'>Bagikan</button></td></tr></table></p>";
     
     if (typeof AndroidInterface !== "undefined" && AndroidInterface.printPage) {
-       output += "<button onclick='AndroidInterface.printPage()' class='noprint'>Cetak</button>
+       output += "<button onclick='AndroidInterface.printPage()' class='noprint'>Cetak</button>";
     } else {
-       output += "<button onclick='window.print()' class='noprint'>Cetak</button>
+       output += "<button onclick='window.print()' class='noprint'>Cetak</button>";
     }
     
-    output += &nbsp;&nbsp;<button onclick='kirim()' class='noprint'>Bagikan</button></td></tr></table></p>";
+    output += "&nbsp;&nbsp;<button onclick='kirim()' class='noprint'>Bagikan</button></td></tr></table></p>";
     document.getElementById("output").innerHTML = output;
   }
     
