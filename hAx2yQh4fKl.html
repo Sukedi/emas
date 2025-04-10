@@ -32,6 +32,11 @@
     font-size:14px;
   }
   @media print {
+    body {
+    background: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    }
     .noprint { display:none; }
   }
   .top {
