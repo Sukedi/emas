@@ -32,6 +32,11 @@
     font-size:14px;
   }
   @media print {
+    body {
+       background: none !important;
+       -webkit-print-color-adjust: exact;
+       print-color-adjust: exact;
+    }
     .noprint { display:none; }
   }
   .top {
@@ -132,7 +137,13 @@
 
     output += "<tr><td colspan='2'>Total</td><td align='right'>"+sumBRT.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })+"</td><td></td><td align='right'>"+parseInt(sumRP).toLocaleString("en-US");
     output += "</td></tr></table><p><table width='100%'><tr><td><button onclick='anyar()' class='noprint'>Reset</button></td><td align='right'>";
-    output += "<button onclick='window.print()' class='noprint'>Cetak</button>&nbsp;&nbsp;<button onclick='kirim()' class='noprint'>Bagikan</button></td></tr></table></p>";
+    if (typeof AndroidInterface !== "undefined" && AndroidInterface.printPage) {
+       output += "<button onclick='AndroidInterface.printPage()' class='noprint'>Cetak</button>";
+    } else {
+       output += "<button onclick='window.print()' class='noprint'>Cetak</button>";
+    }
+    output += "&nbsp;&nbsp;<button onclick='kirim()' class='noprint'>Bagikan</button></td></tr></table></p>";
+
     document.getElementById("output").innerHTML = output;
   }
   function kirim(){
