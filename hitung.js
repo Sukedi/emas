@@ -15,6 +15,16 @@ async function hitung(brt1,brt2,NC){
     SG = brt1/(brt1-brt2);
     DH = ubah(SG,NC);
     hsl = kdrx(DH,NC,MY,AH);
+ // ------
+    if isNaN(hsl) {
+        Swal.fire({
+          title: "Error",
+          text: "Hasil invalid!",
+          icon: "error"
+        });
+        return;
+    }
+ // -------
     document.getElementById("hasil").innerHTML= "Kadar : "+hsl.toFixed(2);
     document.getElementById("w1").value="";
     document.getElementById("w2").value="";
