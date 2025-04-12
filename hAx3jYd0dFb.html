@@ -112,11 +112,11 @@
     const text = document.getElementById("transaksi").innerHTML;
     const lines = text.split("\n").map(line => line.split(", ").map(item => item.trim()));
     let output = "<table width='100%'><tr><td align='center'><b>Struk</b></td></tr></table><table width='100%' style='font-family:arial; font-size:14px;'>";
-    output += "<tr><td align='center' width='10%'>No.</td><td align='center'>Kode</td><td align='right'>Berat</td><td align='right'>Harga</td><td align='right'>Amount</td></tr>";
+    output += "<tr><td>&nbsp;&nbsp;</td><td align='center' width='10%'>No.</td><td align='center'>Kode</td><td align='right'>Berat</td><td align='right'>Harga</td><td align='right'>Amount</td></tr>";
     sumBRT=0; sumRP=0; no=1;
     lines.forEach((row, i) => {
       if (`${row}`!==""){
-        output += "<tr><td align='center'>"+no+"</td>";
+        output += "<tr><td></td><td align='center'>"+no+"</td>";
         row.forEach((col, j) => {
            if (`${col}`!==""){
            if (j==1){
@@ -135,7 +135,7 @@
       }
     });
 
-    output += "<tr><td colspan='2'>Total</td><td align='right'>"+sumBRT.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })+"</td><td></td><td align='right'>"+parseInt(sumRP).toLocaleString("en-US");
+    output += "<tr><td></td><td colspan='2'>Total</td><td align='right'>"+sumBRT.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })+"</td><td></td><td align='right'>"+parseInt(sumRP).toLocaleString("en-US");
     output += "</td></tr></table><p><table width='100%'><tr><td><button onclick='anyar()' class='noprint'>Reset</button></td><td align='right'>";
     if (typeof AndroidInterface !== "undefined" && AndroidInterface.printPage) {
        output += "<button onclick='AndroidInterface.printPage()' class='noprint'>Cetak</button>";
