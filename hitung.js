@@ -16,7 +16,7 @@ async function hitung(brt1,brt2,NC){
     DH = ubah(SG,NC);
     hsl = kdrx(DH,NC,MY,AH);
  // ------
-    if isNaN(hsl) {
+    if (isNaN(hsl)) {
         Swal.fire({
           title: "Error",
           text: "Hasil invalid!",
