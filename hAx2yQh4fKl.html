@@ -112,7 +112,7 @@
      DH = ubah(SG,NC);
      brt = kdrx(DH,NC,MY,AH);
     // ------
-    if isNaN(brt) {
+    if (isNaN(brt)) {
         Swal.fire({
           title: "Error",
           text: "Hasil invalid!",
