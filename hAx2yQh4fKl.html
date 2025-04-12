@@ -43,6 +43,9 @@
    position: absolute;
    top: 0; right: 5px;
   }
+  .rptx {
+    justify-content: center;
+  }
   </style>
 </head>
 <body onLoad="device_id(0)">
@@ -108,16 +111,14 @@
      SG = brt1/(brt1-brt2);
      DH = ubah(SG,NC);
      brt = kdrx(DH,NC,MY,AH);
-    // ------
-    if (isNaN(brt)) {
+     if (isNaN(brt)) {
         Swal.fire({
           title: "Error",
           text: "Hasil invalid!",
           icon: "error"
         });
         return;
-    }
-    // -------
+     }
      amnt = brt * prc;
      tmp= brt1+", "+brt+", "+prc+", "+amnt+"\n";
      isi=document.getElementById("transaksi").innerHTML;
@@ -138,12 +139,12 @@
   function prev(){
     const text = document.getElementById("transaksi").innerHTML;
     const lines = text.split("\n").map(line => line.split(", ").map(item => item.trim()));
-    let output = "<table width='100%'><tr><td align='center'><b>Struk</b></td></tr></table><table width='100%' style='font-family:arial; font-size:14px;'>";
-    output += "<tr><td>&nbsp;&nbsp;</td><td align='center' width='5%'>No.</td><td align='right'>Berat</td><td align='right'>Kadar</td><td align='right'>Harga</td><td align='right'>Amount</td></tr>";
+    let output = "<div class='rptx'><table width='100%'><tr><td align='center'><b>Struk</b></td></tr></table><table width='100%' style='font-family:arial; font-size:14px;'>";
+    output += "<tr><td align='center' width='5%'>No.</td><td align='right'>Berat</td><td align='right'>Kadar</td><td align='right'>Harga</td><td align='right'>Amount</td></tr>";
     sumBRT=0; sumKRT=0; sumRP=0; no=1;
     lines.forEach((row, i) => {
       if (`${row}`!==""){
-        output += "<tr><td></td><td align='center'>"+no+"</td>";
+        output += "<tr><td align='center'>"+no+"</td>";
         row.forEach((col, j) => {
            if (`${col}`!==""){
            if (j<2){
@@ -161,7 +162,7 @@
       }
     });
 
-    output += "<tr><td></td><td>Total</td><td align='right'>"+sumBRT.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })+"</td>";
+    output += "<tr><td>Total</td><td align='right'>"+sumBRT.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })+"</td>";
     output += "<td colspan='2'></td>";
     output += "<td align='right'>"+parseInt(sumRP).toLocaleString("en-US")+"</td></tr></table>";
     output += "<p><table width='100%'><tr><td><button onclick='anyar()' class='noprint'>Reset</button></td><td align='right'>";    
@@ -170,7 +171,7 @@
     } else {
        output += "<button onclick='window.print()' class='noprint'>Cetak</button>";
     }
-    output += "&nbsp;&nbsp;<button onclick='kirim()' class='noprint'>Bagikan</button></td></tr></table></p>";
+    output += "&nbsp;&nbsp;<button onclick='kirim()' class='noprint'>Bagikan</button></td></tr></table></p></div>";
     document.getElementById("output").innerHTML = output;
   }
     
