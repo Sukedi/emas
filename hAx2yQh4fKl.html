@@ -139,7 +139,7 @@
   function prev(){
     const text = document.getElementById("transaksi").innerHTML;
     const lines = text.split("\n").map(line => line.split(", ").map(item => item.trim()));
-    let output = "<div class='rptx'><table width='100%'><tr><td align='center'><b>Struk</b></td></tr></table><table width='100%' style='font-family:arial; font-size:14px;'>";
+    let output = "<center><table width='100%'><tr><td align='center'><b>Struk</b></td></tr></table><table width='100%' style='font-family:arial; font-size:14px;'>";
     output += "<tr><td align='center' width='5%'>No.</td><td align='right'>Berat</td><td align='right'>Kadar</td><td align='right'>Harga</td><td align='right'>Amount</td></tr>";
     sumBRT=0; sumKRT=0; sumRP=0; no=1;
     lines.forEach((row, i) => {
@@ -171,7 +171,7 @@
     } else {
        output += "<button onclick='window.print()' class='noprint'>Cetak</button>";
     }
-    output += "&nbsp;&nbsp;<button onclick='kirim()' class='noprint'>Bagikan</button></td></tr></table></p></div>";
+    output += "&nbsp;&nbsp;<button onclick='kirim()' class='noprint'>Bagikan</button></td></tr></table></p></center>";
     document.getElementById("output").innerHTML = output;
   }
     
