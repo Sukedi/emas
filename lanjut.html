@@ -119,7 +119,7 @@
     let txtWA = "https://api.whatsapp.com/send/?phone=%2B6281394641984&text="+
     "Mohon%20tidak%20mengubah%20kalimat%20di%20bawah%20ini%3A%0A"+
     usr+"%20memilih%20"+plhn+"&type=phone_number&app_absent=0";
-    window.location.href=txtWA;
+    window.location.href=encodeURIComponent(txtWA);
     setTimeout(() => {
         window.location.replace("selesai.html");
      }, 3000);
