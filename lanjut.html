@@ -5,6 +5,7 @@
   <meta name='description' content='Berdasarkan berat luar & dalam air.'>
   <meta property="og:image" content='https://sukedi.github.io/emas/emas.jpg'>
   <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <title>:::Emas:::</title>
   <style>
@@ -19,7 +20,6 @@
    font-size: 13px;
    color: white;
   }
-
   body {
     background: linear-gradient(to bottom, royalblue, skyblue, lightblue);
     height: 100vh;
@@ -30,7 +30,40 @@
     transform: scale(1.3);
     margin: 5px;
    }
-  </style>
+.btn {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 8px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.btn i {
+  font-size: 18px;
+}
+.btn.whatsapp {
+  background-color: #25D366;
+  color: white;
+}
+.btn.whatsapp:hover {
+  background-color: #1ebd5a;
+  transform: scale(1.05);
+}
+.btn.cancel {
+  background-color: #f44336;
+  color: white;
+}
+.btn.cancel:hover {
+  background-color: #e53935;
+  transform: scale(1.05);
+}
+</style>
 </head>
 <body onLoad="device_id(0)">
   <div id="usr" style="font-size:11px; color:#FFD700;"></div>
@@ -59,12 +92,19 @@
         Beli Rp.2,500,000 satu kali untuk<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selamanya.<br>
         </label></p>
-  <p align="center"><button style="font-size:16px;color:blue;" 
+<!--p align="center"><button style="font-size:16px;color:blue;" 
      id="send" onClick="kirim()" disabled>Kirim</button>&nbsp;&nbsp;&nbsp;
      <button style="font-size:16px;color:red;" onClick="javascript:window.location.replace('selesai.html')">
      Cancel</button>
+</p-->
+  <p align="center">
+  <button class="btn whatsapp" id="send" onClick="kirim()" disabled>
+  <i class="fa-brands fa-whatsapp"></i> Kirim
+  </button>
+  <button class="btn cancel" onClick="window.location.href='selesai.html'">
+  <i class="fa-solid fa-ban"></i> Batal
+  </button>
   </p>
-
   <div class='bottom'>
   <center><p style="font-size:11px; color:green;">
   Hak Cipta &copy; 2025, CV Esa Solusindo Pemalang</p>
