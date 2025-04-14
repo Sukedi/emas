@@ -147,11 +147,16 @@
     document.getElementById("output").innerHTML = output;
   }
   function kirim(){
-    Swal.fire({
-          title: "Error",
-          text: "WhatsApp tidak siap!",
-          icon: "error"
-    });
+    const div = document.getElementById("output");
+    if (typeof AndroidInterface !== "undefined" && div) {
+      AndroidInterface.captureHTML(div.innerHTML);
+    } else {
+      Swal.fire({
+        title: "Error",
+        text: "Hanya untuk APK!",
+        icon: "error"
+      });
+    }
   }
   function anyar(){
     document.getElementById("output").innerHTML = "";
