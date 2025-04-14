@@ -111,19 +111,18 @@
     let usr = document.getElementById("usr").innerHTML;
     if (!usr){ usr="Saya"; }
     var pil=document.querySelector('input[name="pilih"]:checked');
-    plh = pil.value;
-    plhn= plh.replace(/ /g, "%20");
+    plhn = pil.value;
+//    plhn= plh.replace(/ /g, "%20");
 //    let txtWA = "https://wa.me/+ 6281394641984 ?text="+
 //    "Mohon%20tidak%20mengubah%20kalimat%20di%20bawah%20ini%3A%0A"+
 //    usr+"%20memilih%20"+plhn;
-    let psn = "Mohon%20tidak%20mengubah%20kalimat%20di%20bawah%20ini%3A%0A"+
-    usr+"%20memilih%20"+plhn;
+    let psn = "Mohon tidak mengubah kalimat di bawah ini:"+usr+" memilih "+plhn;
     let txtWA = "https://api.whatsapp.com/send/?phone=%2B6281394641984&text="+
-    psn+"&type=phone_number&app_absent=0";
+    encodeURIComponent(psn)+"&type=phone_number&app_absent=0";
     if (typeof AndroidInterface !== "undefined" && AndroidInterface.kirimPesanKeWhatsApp) {
     AndroidInterface.kirimPesanKeWhatsApp(psn);
     } else {
-    window.location.href=encodeURIComponent(txtWA);
+    window.location.href=txtWA;
     }
     setTimeout(() => {
         window.location.replace("selesai.html");
