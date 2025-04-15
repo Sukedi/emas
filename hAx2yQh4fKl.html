@@ -179,15 +179,15 @@
   }
     
   function kirim(){
-    const div = document.getElementById("output");
-    const rect = div.getBoundingClientRect();
-    if (typeof AndroidInterface !== "undefined" && div) {
-      AndroidInterface.captureDiv(JSON.stringify({
+    if (typeof AndroidInterface !== "undefined" && AndroidInterface.captureDiv) {
+       const div = document.getElementById("output");
+       const rect = div.getBoundingClientRect();
+       AndroidInterface.captureDiv(JSON.stringify({
             left: rect.left,
             top: rect.top,
             width: rect.width,
             height: rect.height
-      }));
+       }));
     } else {
       Swal.fire({
         title: "Maaf",
