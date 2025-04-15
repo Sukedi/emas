@@ -5,6 +5,7 @@
   <meta name='description' content='Berdasarkan berat luar & dalam air.'>
   <meta property="og:image" content='https://sukedi.github.io/emas/emas.jpg'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <title>Struk</title>
@@ -75,7 +76,12 @@
     <tr><td valign="top">Harga / gram</td><td valign="top">:</td>
     <td><input type="number" id="harga" placeholder="0"></td></tr>
   </table>
-  <p align="center"><button onClick="simpan()" style="font-size:20px; font-weight:bold;">Simpan</button></p>
+  <p align="center">
+    <!--button onClick="simpan()" style="font-size:20px; font-weight:bold;">Simpan</button-->
+    <button onClick="simpan()" style="padding: 10px 20px; font-size: 16px; background-color: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer;">
+    <i class="fas fa-save"></i> Simpan
+    </button>
+  </p>
   <p style="font-size:11px; margin-bottom:2px;">
   &nbsp;*) Harga dibulatkan ribuan. Misal 1500000 diketik 1500.</p>
   </div>
