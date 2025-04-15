@@ -88,8 +88,14 @@
   </center>
   Nama Anda : <input type="text" id="nama" maxlength="15" autofocus>
   <p align="center">
-    <button id="simpan" onClick="simpan()" style="font-size:20px; font-weight:bold;">Simpan</button>
-    <button id="back" onClick="javascript:window.history.back()" style="font-size:20px; font-weight:bold;" hidden>Kembali</button>
+    <!--button id="simpan" onClick="simpan()" style="font-size:20px; font-weight:bold;">Simpan</button-->
+    <!--button id="back" onClick="javascript:window.history.back()" style="font-size:20px; font-weight:bold;" hidden>Kembali</button-->
+    <button id="simpan" onClick="simpan()" style="padding: 10px 20px; font-size: 16px; background-color: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer;">
+    <i class="fas fa-save"></i> Simpan
+    </button>
+    <button id="back" onClick="javascript:window.history.back()" style="padding: 10px 20px; font-size: 16px; background-color: red; color: white; border: none; border-radius: 8px; cursor: pointer;" hidden>
+    <i class="fas fa-undo"></i> Kembali
+    </button>
   </p>
   <p>Nama anda hanya terkait dengan <i>handphone</i> yang 
   anda gunakan ketika membuat <i>username</i> saat ini. 
