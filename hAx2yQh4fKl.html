@@ -179,9 +179,9 @@
   }
     
   function kirim(){
+    const div = document.getElementById("output");
+    const rect = div.getBoundingClientRect();
     if (typeof AndroidInterface !== "undefined" && div) {
-      const div = document.getElementById("output");
-      const rect = div.getBoundingClientRect();
       AndroidInterface.captureDiv(JSON.stringify({
             left: rect.left,
             top: rect.top,
