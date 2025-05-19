@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <meta name="viewport" 
-   content="width=device-width,
-   user-scalable=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
    <title>Respon</title>
 <style>
 button {
@@ -20,29 +22,45 @@ button {
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   transition: background-color 0.2s, transform 0.2s;
 }
+#parent {
+  height: 50px;
+}
+#child {
+  height: 50%;
+}
 </style>
 </head>
 <body style="font-family:arial; 
   font-size:14px;">
   <h3>Respon Atas WA Pelanggan</h3>
-  <p>
-    Nama Pelanggan:<br><input type="text" id="nama" onInput="cekInput()" autofocus><br><br>
-    Tgl Kadaluarsa:<br><input type="date" id="tgl">
-    &nbsp;&nbsp;<button id="oke" onclick="oke()" disabled> Submit </button>
-    <br>
-  </p>
+  <table>
+    <tr><td valign="top">Nama Pelanggan:<br><input type="text" id="nama" size="12" 
+      onInput="cekInput()" autofocus placeholder="Nama sesuai di WA">
+      </td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>Berlangganan:<br>
+    <select id="pilih" onchange="klik()" class="custom-select" style="width:70%;">
+    
+      <option value="1" selected>Bulanan</option>
+      <option value="2">Tahunan</option>
+      <option value="3">Beli 1 kali</option>
+      
+    </select></td></tr>
+    <tr><td colspan="3">&nbsp;</td></tr>
+    <tr><td>Tgl Transfer:<br><input type="date" id="tgl" onchange="klik()">
+    <td>&nbsp;</td>
+    </td><td>Password:<br>
+      <input type="password" id="pwd" size="12">
+    </td></tr>
+  </table>
+  <p><br><button id="oke" onclick="oke()" disabled> Submit </button></p>
+  <div id="exp" hidden=""></div>
   <hr>
-  <p><b>Nama Pelanggan</b> diambil dari WhatsApp pelanggan. 
-Diketik tanpa kurung siku. Contoh:<br>
-[Bambang Susilo] diketik Bambang Susilo</p>
-  
-  <p><b>Tgl Kadaluarsa</b> diisi berdasarkan tgl transfer.<br>
-    <ol><li>Langganan Bulanan: tgl transfer ditambah 1 bulan. 
-    Contoh: tgl transfer 05/06/2025,<br>tgl kadaluarsa: 05/07/2025.</li>
-      <li>Langganan Tahunan: tgl transfer ditambah 1 tahun. 
-    Contoh: tgl transfer 05/06/2025,<br>tgl kadaluarsa: 05/06/2026.</li>
-<li>Langganan "Beli satu kali", tgl kadaluarsa: 31-12-3000.</li></p>
-  </ol>
+  <p><b>Nama Pelanggan</b> diambil dari wa pelanggan. 
+    <span style="color:white;background-color:#454545;">Diketik tanpa kurung siku</span>. Contoh:<br>
+[Bambang Susilo] diketik Bambang Susilo.</p>
+  <p><b>Tgl Transfer</b> lihat bukti transfer di wa.<br>
+  <p><b>Berlangganan</b> lihat pesan wa pelanggan.<br>
+  <p><b>Password</b> tgl lahir uty.<br>
   
 <script>
   function cekInput() {
@@ -55,12 +73,52 @@ Diketik tanpa kurung siku. Contoh:<br>
     let parts = dateStr.split("-");
     return parts[2]+"/"+parts[1]+"/"+parts[0];
   }
+    
   function oke() {
-     let nama = encodeURIComponent(document.getElementById("nama").value);
-     let tgl  = encodeURIComponent(parseDate(document.getElementById("tgl").value));
-     let urlx = "https://tjokrotourtransport.com/admin/respon.php?nama="+nama+"&tgl="+tgl;
+     let pwd  = encodeURIComponent((document.getElementById("pwd").value).replace(/\s/g,""));
+     let nama = encodeURIComponent((document.getElementById("nama").value).trim());
+     let tgl  = encodeURIComponent(document.getElementById("exp").innerHTML);
+     let urlx = "https://tjokrotourtransport.com/admin/respon.php?nama="+nama+"&tgl="+tgl+"&pwd="+pwd;
      window.location.href=urlx;
+    // alert(urlx);
   }
+  
+  function klik() {
+    var nn = document.getElementById("pilih").value;
+    let input = document.querySelector('input[type="date"]');
+    let dtStr = input.value;
+    let dtObj = new Date(dtStr);
+    if (nn=="1") { dtObj.setMonth(dtObj.getMonth()+1); }
+    if (nn=="2") { dtObj.setMonth(dtObj.getMonth()+12); }
+    if (nn=="3") { dtObj.setMonth(dtObj.getMonth()+12000); }
+    let dtExp = dtObj.toLocaleDateString('id-ID', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+    document.getElementById("exp").innerHTML=dtExp;
+  }
+    
+  let date = new Date();
+  date.setMonth(date.getMonth() + 1);
+  let blndpn = date.toLocaleDateString('id-ID', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  });
+  document.getElementById("exp").innerHTML=blndpn;
+  let today = new Date();
+  let yyyy = today.getFullYear();
+  let mm = String(today.getMonth() + 1).padStart(2, '0'); // Bulan dimulai dari 0
+  let dd = String(today.getDate()).padStart(2, '0');
+
+  let tanggalHariIni = `${yyyy}-${mm}-${dd}`;
+  document.getElementById("tgl").value = tanggalHariIni;
+
+  $(document).ready(function() {
+    $(".custom-select").select2();
+  });
+
 </script>
 </body>
 </html>
